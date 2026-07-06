@@ -81,10 +81,31 @@
 .player-toolbar__meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   font-size: var(--fs-sm);
   color: var(--text-secondary);
 }
+
+.player-toolbar__meta > span:empty { display: none; }
+
+.player-toolbar__meta > span:not(:first-child)::before {
+  content: '·';
+  margin-right: var(--space-sm);
+  color: var(--text-tertiary);
+}
+
+.difficulty-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 0.4em;
+}
+
+.difficulty-dot--easy { background: var(--success); }
+.difficulty-dot--medium { background: var(--aurora-amber); }
+.difficulty-dot--hard { background: var(--danger); }
 
 .player-toolbar__actions {
   display: flex;

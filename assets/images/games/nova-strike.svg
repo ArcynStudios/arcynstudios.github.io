@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+    <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(68, 50, 140)" />
+      <stop offset="55%" stop-color="#0a0a14" />
+      <stop offset="100%" stop-color="#05050a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#7c5cff" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#7c5cff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="75%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.55" />
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise" />
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0" />
+    </filter>
+    <filter id="blur"><feGaussianBlur stdDeviation="8" /></filter>
+  </defs>
+    
+    <rect width="800" height="450" fill="url(#bg)" />
+    <rect width="800" height="450" fill="url(#glow)" />
+  
+    
+      <circle cx="557.5451036766171" cy="200.63333280896768" r="40" fill="none" stroke="#7c5cff" stroke-opacity="0.2928571428571428" stroke-width="1.5" /><circle cx="557.5451036766171" cy="200.63333280896768" r="85" fill="none" stroke="#7c5cff" stroke-opacity="0.22857142857142854" stroke-width="1.5" /><circle cx="557.5451036766171" cy="200.63333280896768" r="130" fill="none" stroke="#7c5cff" stroke-opacity="0.16428571428571426" stroke-width="1.5" /><circle cx="557.5451036766171" cy="200.63333280896768" r="175" fill="none" stroke="#7c5cff" stroke-opacity="0.09999999999999998" stroke-width="1.5" />
+      <line x1="297.54510367661715" y1="200.63333280896768" x2="817.5451036766171" y2="200.63333280896768" stroke="#7c5cff" stroke-opacity="0.3" stroke-width="1" />
+      <line x1="557.5451036766171" y1="-59.36666719103232" x2="557.5451036766171" y2="460.6333328089677" stroke="#7c5cff" stroke-opacity="0.3" stroke-width="1" />
+      <circle cx="557.5451036766171" cy="200.63333280896768" r="6" fill="#7c5cff" />
+      <circle cx="508.3107333120109" cy="272.72093760459444" r="3.2426643206272274" fill="#ff5c8a" opacity="0.47260117121040823" /><circle cx="742.7571728236494" cy="381.1135159769444" r="1.7403783879708499" fill="#ff5c8a" opacity="0.4060377093963325" /><circle cx="583.498665141591" cy="340.2641936689947" r="1.6404079387430102" fill="#ff5c8a" opacity="0.30027673905715346" /><circle cx="566.244655845303" cy="130.747650894313" r="1.9712662805104628" fill="#ff5c8a" opacity="0.6463558446615935" /><circle cx="626.85976318669" cy="196.71822735525518" r="3.450190486968495" fill="#ff5c8a" opacity="0.3347378893755376" /><circle cx="639.7131363940648" cy="362.1406264841165" r="2.468830967321992" fill="#ff5c8a" opacity="0.5806303901597858" /><circle cx="670.049099241248" cy="331.6703474905395" r="3.3947417684830725" fill="#ff5c8a" opacity="0.3510962909087539" /><circle cx="776.4827283104676" cy="293.13035119042115" r="1.8477205708622932" fill="#ff5c8a" opacity="0.523473097011447" /><circle cx="724.0443136127075" cy="249.10188773426304" r="3.874396738014184" fill="#ff5c8a" opacity="0.4464758860878646" /><circle cx="763.1327981415282" cy="1.1127466286660592" r="2.3738108415855095" fill="#ff5c8a" opacity="0.5289623698219657" /><circle cx="641.6154238795478" cy="269.20536574067023" r="3.608320232364349" fill="#ff5c8a" opacity="0.3135466997511685" /><circle cx="627.12978455912" cy="175.2575908367426" r="1.8530758287524804" fill="#ff5c8a" opacity="0.40491091581061484" /><circle cx="702.1820941581934" cy="87.12588944611325" r="3.084811079665087" fill="#ff5c8a" opacity="0.45528063774108884" /><circle cx="583.4356298242151" cy="300.03202467286246" r="3.037674772553146" fill="#ff5c8a" opacity="0.6301078628748655" /><circle cx="582.1231927667825" cy="254.31557323249928" r="1.8808726702118292" fill="#ff5c8a" opacity="0.3348498340696096" /><circle cx="507.6443219394098" cy="163.55159147590945" r="3.1616758675081655" fill="#ff5c8a" opacity="0.4545359145849943" /><circle cx="463.8644981181874" cy="318.6102995674754" r="1.925016837543808" fill="#ff5c8a" opacity="0.3768320715986192" /><circle cx="826.6527072527131" cy="110.13678721049934" r="2.0325122858630493" fill="#ff5c8a" opacity="0.3803450480103493" /><circle cx="501.67054211257744" cy="270.480131512853" r="3.193246516515501" fill="#ff5c8a" opacity="0.5579819944687188" /><circle cx="285.2845348141623" cy="190.43854130978693" r="1.7829559368547052" fill="#ff5c8a" opacity="0.5399984763935208" /><circle cx="652.8324304511552" cy="299.5388551421686" r="2.083732833038084" fill="#ff5c8a" opacity="0.44860144387930634" /><circle cx="786.030828193597" cy="98.40900076383971" r="2.0958520306739956" fill="#ff5c8a" opacity="0.3931221624836326" /><circle cx="473.29918285742406" cy="394.55821026684544" r="2.771242468501441" fill="#ff5c8a" opacity="0.5740498749539256" /><circle cx="556.1628941403699" cy="-93.01115749995404" r="3.0215856849681586" fill="#ff5c8a" opacity="0.37813689978793263" /><circle cx="791.3142230739288" cy="231.22613328276802" r="2.059180741547607" fill="#ff5c8a" opacity="0.3339738865382969" /><circle cx="756.7488941735686" cy="135.211014561078" r="2.3713529020315036" fill="#ff5c8a" opacity="0.3531292689964175" />
+    
+    
+    <rect width="800" height="450" fill="url(#vignette)" />
+    <rect width="800" height="450" filter="url(#grain)" opacity="0.5" />
+  
+    <text x="786" y="436" text-anchor="end" font-family="Sora, sans-serif" font-weight="800" font-size="14" letter-spacing="2" fill="#ffffff" opacity="0.35">ARCYN</text>
+  </svg>

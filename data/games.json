@@ -1,22 +1,794 @@
 {
   "games": [
-    { "id": "neon-drift", "name": "Neon Drift", "category": "Racing", "rating": 4.8, "plays": "128K", "thumbnail": "assets/images/games/neon-drift.svg", "featured": true, "trending": true, "new": false, "accent": "#7c5cff" },
-    { "id": "void-siege", "name": "Void Siege", "category": "Shooter", "rating": 4.6, "plays": "94K", "thumbnail": "assets/images/games/void-siege.svg", "featured": true, "trending": false, "new": false, "accent": "#ff5c8a" },
-    { "id": "pixel-kingdoms", "name": "Pixel Kingdoms", "category": "Strategy", "rating": 4.9, "plays": "210K", "thumbnail": "assets/images/games/pixel-kingdoms.svg", "featured": true, "trending": true, "new": false, "accent": "#22d3ee" },
-    { "id": "starfall-arena", "name": "Starfall Arena", "category": "Action", "rating": 4.7, "plays": "76K", "thumbnail": "assets/images/games/starfall-arena.svg", "featured": true, "trending": false, "new": true, "accent": "#ffb444" },
-    { "id": "chrono-puzzle", "name": "Chrono Puzzle", "category": "Puzzle", "rating": 4.5, "plays": "63K", "thumbnail": "assets/images/games/chrono-puzzle.svg", "featured": false, "trending": true, "new": false, "accent": "#7c5cff" },
-    { "id": "abyss-runner", "name": "Abyss Runner", "category": "Arcade", "rating": 4.4, "plays": "51K", "thumbnail": "assets/images/games/abyss-runner.svg", "featured": false, "trending": true, "new": false, "accent": "#22d3ee" },
-    { "id": "mythic-clash", "name": "Mythic Clash", "category": "Fighting", "rating": 4.8, "plays": "142K", "thumbnail": "assets/images/games/mythic-clash.svg", "featured": false, "trending": true, "new": false, "accent": "#ff5c8a" },
-    { "id": "galaxy-tycoon", "name": "Galaxy Tycoon", "category": "Simulation", "rating": 4.3, "plays": "38K", "thumbnail": "assets/images/games/galaxy-tycoon.svg", "featured": false, "trending": false, "new": true, "accent": "#ffb444" },
-    { "id": "shadow-blade", "name": "Shadow Blade", "category": "Action", "rating": 4.7, "plays": "88K", "thumbnail": "assets/images/games/shadow-blade.svg", "featured": false, "trending": false, "new": true, "accent": "#7c5cff" },
-    { "id": "quantum-maze", "name": "Quantum Maze", "category": "Puzzle", "rating": 4.6, "plays": "47K", "thumbnail": "assets/images/games/quantum-maze.svg", "featured": false, "trending": false, "new": true, "accent": "#22d3ee" },
-    { "id": "reef-rally", "name": "Reef Rally", "category": "Racing", "rating": 4.2, "plays": "29K", "thumbnail": "assets/images/games/reef-rally.svg", "featured": false, "trending": false, "new": true, "accent": "#ff5c8a" },
-    { "id": "ember-legion", "name": "Ember Legion", "category": "Strategy", "rating": 4.9, "plays": "167K", "thumbnail": "assets/images/games/ember-legion.svg", "featured": false, "trending": true, "new": false, "accent": "#ffb444" },
-    { "id": "frostbyte", "name": "Frostbyte", "category": "Adventure", "rating": 4.5, "plays": "55K", "thumbnail": "assets/images/games/frostbyte.svg", "featured": false, "trending": false, "new": false, "accent": "#22d3ee" },
-    { "id": "nova-strike", "name": "Nova Strike", "category": "Shooter", "rating": 4.6, "plays": "72K", "thumbnail": "assets/images/games/nova-strike.svg", "featured": false, "trending": false, "new": false, "accent": "#7c5cff" },
-    { "id": "obsidian-court", "name": "Obsidian Court", "category": "Puzzle", "rating": 4.4, "plays": "33K", "thumbnail": "assets/images/games/obsidian-court.svg", "featured": false, "trending": false, "new": false, "accent": "#ff5c8a" },
-    { "id": "hyperloop-heist", "name": "Hyperloop Heist", "category": "Arcade", "rating": 4.3, "plays": "41K", "thumbnail": "assets/images/games/hyperloop-heist.svg", "featured": false, "trending": false, "new": false, "accent": "#ffb444" },
-    { "id": "wraith-protocol", "name": "Wraith Protocol", "category": "Action", "rating": 4.8, "plays": "119K", "thumbnail": "assets/images/games/wraith-protocol.svg", "featured": false, "trending": true, "new": false, "accent": "#7c5cff" },
-    { "id": "solstice-tactics", "name": "Solstice Tactics", "category": "Strategy", "rating": 4.7, "plays": "97K", "thumbnail": "assets/images/games/solstice-tactics.svg", "featured": false, "trending": false, "new": false, "accent": "#22d3ee" }
+    {
+      "id": "neon-drift",
+      "name": "Neon Drift",
+      "category": "Racing",
+      "rating": 4.8,
+      "plays": "128K",
+      "thumbnail": "assets/images/games/neon-drift.svg",
+      "featured": true,
+      "trending": true,
+      "new": false,
+      "accent": "#7c5cff",
+      "tags": [
+        "racing",
+        "multiplayer",
+        "speed",
+        "cars",
+        "neon"
+      ],
+      "description": "Grip the wheel and chase the podium in Neon Drift — tight tracks, drifting physics, and rival racers who won't yield the inside line.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Steer"
+        },
+        {
+          "key": "Space",
+          "action": "Handbrake"
+        },
+        {
+          "key": "Shift",
+          "action": "Boost"
+        },
+        {
+          "key": "R",
+          "action": "Reset car"
+        }
+      ],
+      "releaseDate": "2026-06-28",
+      "editorsPick": true,
+      "playsCount": 128000,
+      "likes": 23040,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/neon-drift/index.html",
+      "difficulty": "Medium",
+      "estPlayTime": "3-6 min"
+    },
+    {
+      "id": "void-siege",
+      "name": "Void Siege",
+      "category": "Shooter",
+      "rating": 4.6,
+      "plays": "94K",
+      "thumbnail": "assets/images/games/void-siege.svg",
+      "featured": true,
+      "trending": false,
+      "new": false,
+      "accent": "#ff5c8a",
+      "tags": [
+        "shooter",
+        "multiplayer",
+        "fps",
+        "competitive",
+        "void"
+      ],
+      "description": "Drop into Void Siege and outgun every opponent standing between you and the top of the leaderboard.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "Mouse",
+          "action": "Aim"
+        },
+        {
+          "key": "Click",
+          "action": "Fire"
+        },
+        {
+          "key": "R",
+          "action": "Reload"
+        }
+      ],
+      "releaseDate": "2026-06-14",
+      "editorsPick": false,
+      "playsCount": 94000,
+      "likes": 16920,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/void-siege/index.html",
+      "difficulty": "Hard",
+      "estPlayTime": "4-8 min"
+    },
+    {
+      "id": "pixel-kingdoms",
+      "name": "Pixel Kingdoms",
+      "category": "Strategy",
+      "rating": 4.9,
+      "plays": "210K",
+      "thumbnail": "assets/images/games/pixel-kingdoms.svg",
+      "featured": true,
+      "trending": true,
+      "new": false,
+      "accent": "#22d3ee",
+      "tags": [
+        "strategy",
+        "tactics",
+        "singleplayer",
+        "building",
+        "pixel"
+      ],
+      "description": "Command your forces and out-think the opposition in Pixel Kingdoms, where every decision reshapes the battlefield.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Select / command units"
+        },
+        {
+          "key": "Space",
+          "action": "Pause & plan"
+        },
+        {
+          "key": "1-4",
+          "action": "Ability hotkeys"
+        }
+      ],
+      "releaseDate": "2026-05-30",
+      "editorsPick": true,
+      "playsCount": 210000,
+      "likes": 37800,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/pixel-kingdoms/index.html",
+      "difficulty": "Medium",
+      "estPlayTime": "5-10 min"
+    },
+    {
+      "id": "starfall-arena",
+      "name": "Starfall Arena",
+      "category": "Action",
+      "rating": 4.7,
+      "plays": "76K",
+      "thumbnail": "assets/images/games/starfall-arena.svg",
+      "featured": true,
+      "trending": false,
+      "new": true,
+      "accent": "#ffb444",
+      "tags": [
+        "action",
+        "combat",
+        "singleplayer",
+        "fast-paced",
+        "starfall"
+      ],
+      "description": "Non-stop combat and split-second reflexes define Starfall Arena — survive the chaos and come out on top.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "Mouse",
+          "action": "Aim / attack"
+        },
+        {
+          "key": "Space",
+          "action": "Dodge"
+        },
+        {
+          "key": "Shift",
+          "action": "Sprint"
+        }
+      ],
+      "releaseDate": "2026-05-18",
+      "editorsPick": false,
+      "playsCount": 76000,
+      "likes": 13680,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Hard",
+      "estPlayTime": "4-8 min"
+    },
+    {
+      "id": "chrono-puzzle",
+      "name": "Chrono Puzzle",
+      "category": "Puzzle",
+      "rating": 4.5,
+      "plays": "63K",
+      "thumbnail": "assets/images/games/chrono-puzzle.svg",
+      "featured": false,
+      "trending": true,
+      "new": false,
+      "accent": "#7c5cff",
+      "tags": [
+        "puzzle",
+        "brain-teaser",
+        "relaxing",
+        "singleplayer",
+        "chrono"
+      ],
+      "description": "Untangle clever mechanics and satisfying \"aha\" moments in Chrono Puzzle — easy to learn, hard to put down.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Interact / click"
+        },
+        {
+          "key": "Arrow Keys",
+          "action": "Move piece"
+        },
+        {
+          "key": "Z",
+          "action": "Undo"
+        }
+      ],
+      "releaseDate": "2026-05-02",
+      "editorsPick": false,
+      "playsCount": 63000,
+      "likes": 11340,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/chrono-puzzle/index.html",
+      "difficulty": "Easy",
+      "estPlayTime": "3-5 min"
+    },
+    {
+      "id": "abyss-runner",
+      "name": "Abyss Runner",
+      "category": "Arcade",
+      "rating": 4.4,
+      "plays": "51K",
+      "thumbnail": "assets/images/games/abyss-runner.svg",
+      "featured": false,
+      "trending": true,
+      "new": false,
+      "accent": "#22d3ee",
+      "tags": [
+        "arcade",
+        "high-score",
+        "casual",
+        "fast-paced",
+        "abyss"
+      ],
+      "description": "Classic arcade energy, remixed — Abyss Runner is all about tight controls and chasing a new high score.",
+      "controls": [
+        {
+          "key": "Arrow Keys",
+          "action": "Move"
+        },
+        {
+          "key": "Space",
+          "action": "Jump / action"
+        }
+      ],
+      "releaseDate": "2026-04-21",
+      "editorsPick": false,
+      "playsCount": 51000,
+      "likes": 9180,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/abyss-runner/index.html",
+      "difficulty": "Easy",
+      "estPlayTime": "2-5 min"
+    },
+    {
+      "id": "mythic-clash",
+      "name": "Mythic Clash",
+      "category": "Fighting",
+      "rating": 4.8,
+      "plays": "142K",
+      "thumbnail": "assets/images/games/mythic-clash.svg",
+      "featured": false,
+      "trending": true,
+      "new": false,
+      "accent": "#ff5c8a",
+      "tags": [
+        "fighting",
+        "pvp",
+        "combos",
+        "competitive",
+        "mythic"
+      ],
+      "description": "Master combos and punish every opening in Mythic Clash, a fighter built for close, technical duels.",
+      "controls": [
+        {
+          "key": "A / D",
+          "action": "Move"
+        },
+        {
+          "key": "J",
+          "action": "Punch"
+        },
+        {
+          "key": "K",
+          "action": "Kick"
+        },
+        {
+          "key": "L",
+          "action": "Block"
+        }
+      ],
+      "releaseDate": "2026-04-09",
+      "editorsPick": true,
+      "playsCount": 142000,
+      "likes": 25560,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/mythic-clash/index.html",
+      "difficulty": "Medium",
+      "estPlayTime": "3-6 min"
+    },
+    {
+      "id": "galaxy-tycoon",
+      "name": "Galaxy Tycoon",
+      "category": "Simulation",
+      "rating": 4.3,
+      "plays": "38K",
+      "thumbnail": "assets/images/games/galaxy-tycoon.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "accent": "#ffb444",
+      "tags": [
+        "simulation",
+        "management",
+        "relaxing",
+        "building",
+        "galaxy"
+      ],
+      "description": "Build, manage, and optimize at your own pace in Galaxy Tycoon — a deep sim for patient planners.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Build / interact"
+        },
+        {
+          "key": "Scroll",
+          "action": "Zoom"
+        },
+        {
+          "key": "Space",
+          "action": "Pause simulation"
+        }
+      ],
+      "releaseDate": "2026-03-26",
+      "editorsPick": false,
+      "playsCount": 38000,
+      "likes": 6840,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/galaxy-tycoon/index.html",
+      "difficulty": "Easy",
+      "estPlayTime": "10+ min"
+    },
+    {
+      "id": "shadow-blade",
+      "name": "Shadow Blade",
+      "category": "Action",
+      "rating": 4.7,
+      "plays": "88K",
+      "thumbnail": "assets/images/games/shadow-blade.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "accent": "#7c5cff",
+      "tags": [
+        "action",
+        "combat",
+        "singleplayer",
+        "fast-paced",
+        "shadow"
+      ],
+      "description": "Non-stop combat and split-second reflexes define Shadow Blade — survive the chaos and come out on top.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "Mouse",
+          "action": "Aim / attack"
+        },
+        {
+          "key": "Space",
+          "action": "Dodge"
+        },
+        {
+          "key": "Shift",
+          "action": "Sprint"
+        }
+      ],
+      "releaseDate": "2026-03-11",
+      "editorsPick": false,
+      "playsCount": 88000,
+      "likes": 15840,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Hard",
+      "estPlayTime": "4-8 min"
+    },
+    {
+      "id": "quantum-maze",
+      "name": "Quantum Maze",
+      "category": "Puzzle",
+      "rating": 4.6,
+      "plays": "47K",
+      "thumbnail": "assets/images/games/quantum-maze.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "accent": "#22d3ee",
+      "tags": [
+        "puzzle",
+        "brain-teaser",
+        "relaxing",
+        "singleplayer",
+        "quantum"
+      ],
+      "description": "Untangle clever mechanics and satisfying \"aha\" moments in Quantum Maze — easy to learn, hard to put down.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Interact / click"
+        },
+        {
+          "key": "Arrow Keys",
+          "action": "Move piece"
+        },
+        {
+          "key": "Z",
+          "action": "Undo"
+        }
+      ],
+      "releaseDate": "2026-02-24",
+      "editorsPick": false,
+      "playsCount": 47000,
+      "likes": 8460,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/quantum-maze/index.html",
+      "difficulty": "Medium",
+      "estPlayTime": "5-9 min"
+    },
+    {
+      "id": "reef-rally",
+      "name": "Reef Rally",
+      "category": "Racing",
+      "rating": 4.2,
+      "plays": "29K",
+      "thumbnail": "assets/images/games/reef-rally.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "accent": "#ff5c8a",
+      "tags": [
+        "racing",
+        "multiplayer",
+        "speed",
+        "cars",
+        "reef"
+      ],
+      "description": "Grip the wheel and chase the podium in Reef Rally — tight tracks, drifting physics, and rival racers who won't yield the inside line.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Steer"
+        },
+        {
+          "key": "Space",
+          "action": "Handbrake"
+        },
+        {
+          "key": "Shift",
+          "action": "Boost"
+        },
+        {
+          "key": "R",
+          "action": "Reset car"
+        }
+      ],
+      "releaseDate": "2026-02-09",
+      "editorsPick": false,
+      "playsCount": 29000,
+      "likes": 5220,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Medium",
+      "estPlayTime": "3-6 min"
+    },
+    {
+      "id": "ember-legion",
+      "name": "Ember Legion",
+      "category": "Strategy",
+      "rating": 4.9,
+      "plays": "167K",
+      "thumbnail": "assets/images/games/ember-legion.svg",
+      "featured": false,
+      "trending": true,
+      "new": false,
+      "accent": "#ffb444",
+      "tags": [
+        "strategy",
+        "tactics",
+        "singleplayer",
+        "building",
+        "ember"
+      ],
+      "description": "Command your forces and out-think the opposition in Ember Legion, where every decision reshapes the battlefield.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Select / command units"
+        },
+        {
+          "key": "Space",
+          "action": "Pause & plan"
+        },
+        {
+          "key": "1-4",
+          "action": "Ability hotkeys"
+        }
+      ],
+      "releaseDate": "2026-01-22",
+      "editorsPick": true,
+      "playsCount": 167000,
+      "likes": 30060,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Medium",
+      "estPlayTime": "8-15 min"
+    },
+    {
+      "id": "frostbyte",
+      "name": "Frostbyte",
+      "category": "Adventure",
+      "rating": 4.5,
+      "plays": "55K",
+      "thumbnail": "assets/images/games/frostbyte.svg",
+      "featured": false,
+      "trending": false,
+      "new": false,
+      "accent": "#22d3ee",
+      "tags": [
+        "adventure",
+        "exploration",
+        "story",
+        "singleplayer",
+        "frostbyte"
+      ],
+      "description": "Explore a hand-crafted world full of secrets in Frostbyte, where every corner rewards curiosity.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "E",
+          "action": "Interact"
+        },
+        {
+          "key": "Space",
+          "action": "Jump"
+        }
+      ],
+      "releaseDate": "2026-01-06",
+      "editorsPick": false,
+      "playsCount": 55000,
+      "likes": 9900,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/frostbyte/index.html",
+      "difficulty": "Medium",
+      "estPlayTime": "4-8 min"
+    },
+    {
+      "id": "nova-strike",
+      "name": "Nova Strike",
+      "category": "Shooter",
+      "rating": 4.6,
+      "plays": "72K",
+      "thumbnail": "assets/images/games/nova-strike.svg",
+      "featured": false,
+      "trending": false,
+      "new": false,
+      "accent": "#7c5cff",
+      "tags": [
+        "shooter",
+        "multiplayer",
+        "fps",
+        "competitive",
+        "nova"
+      ],
+      "description": "Drop into Nova Strike and outgun every opponent standing between you and the top of the leaderboard.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "Mouse",
+          "action": "Aim"
+        },
+        {
+          "key": "Click",
+          "action": "Fire"
+        },
+        {
+          "key": "R",
+          "action": "Reload"
+        }
+      ],
+      "releaseDate": "2025-12-15",
+      "editorsPick": false,
+      "playsCount": 72000,
+      "likes": 12960,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Hard",
+      "estPlayTime": "4-8 min"
+    },
+    {
+      "id": "obsidian-court",
+      "name": "Obsidian Court",
+      "category": "Puzzle",
+      "rating": 4.4,
+      "plays": "33K",
+      "thumbnail": "assets/images/games/obsidian-court.svg",
+      "featured": false,
+      "trending": false,
+      "new": false,
+      "accent": "#ff5c8a",
+      "tags": [
+        "puzzle",
+        "brain-teaser",
+        "relaxing",
+        "singleplayer",
+        "obsidian"
+      ],
+      "description": "Untangle clever mechanics and satisfying \"aha\" moments in Obsidian Court — easy to learn, hard to put down.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Interact / click"
+        },
+        {
+          "key": "Arrow Keys",
+          "action": "Move piece"
+        },
+        {
+          "key": "Z",
+          "action": "Undo"
+        }
+      ],
+      "releaseDate": "2025-11-30",
+      "editorsPick": false,
+      "playsCount": 33000,
+      "likes": 5940,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Easy",
+      "estPlayTime": "3-6 min"
+    },
+    {
+      "id": "hyperloop-heist",
+      "name": "Hyperloop Heist",
+      "category": "Arcade",
+      "rating": 4.3,
+      "plays": "41K",
+      "thumbnail": "assets/images/games/hyperloop-heist.svg",
+      "featured": false,
+      "trending": false,
+      "new": false,
+      "accent": "#ffb444",
+      "tags": [
+        "arcade",
+        "high-score",
+        "casual",
+        "fast-paced",
+        "hyperloop"
+      ],
+      "description": "Classic arcade energy, remixed — Hyperloop Heist is all about tight controls and chasing a new high score.",
+      "controls": [
+        {
+          "key": "Arrow Keys",
+          "action": "Move"
+        },
+        {
+          "key": "Space",
+          "action": "Jump / action"
+        }
+      ],
+      "releaseDate": "2025-11-12",
+      "editorsPick": false,
+      "playsCount": 41000,
+      "likes": 7380,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Easy",
+      "estPlayTime": "2-5 min"
+    },
+    {
+      "id": "wraith-protocol",
+      "name": "Wraith Protocol",
+      "category": "Action",
+      "rating": 4.8,
+      "plays": "119K",
+      "thumbnail": "assets/images/games/wraith-protocol.svg",
+      "featured": false,
+      "trending": true,
+      "new": false,
+      "accent": "#7c5cff",
+      "tags": [
+        "action",
+        "combat",
+        "singleplayer",
+        "fast-paced",
+        "wraith"
+      ],
+      "description": "Non-stop combat and split-second reflexes define Wraith Protocol — survive the chaos and come out on top.",
+      "controls": [
+        {
+          "key": "W A S D",
+          "action": "Move"
+        },
+        {
+          "key": "Mouse",
+          "action": "Aim / attack"
+        },
+        {
+          "key": "Space",
+          "action": "Dodge"
+        },
+        {
+          "key": "Shift",
+          "action": "Sprint"
+        }
+      ],
+      "releaseDate": "2025-10-27",
+      "editorsPick": true,
+      "playsCount": 119000,
+      "likes": 21420,
+      "reports": 0,
+      "playable": true,
+      "playUrl": "library/wraith-protocol/index.html",
+      "difficulty": "Hard",
+      "estPlayTime": "3-6 min"
+    },
+    {
+      "id": "solstice-tactics",
+      "name": "Solstice Tactics",
+      "category": "Strategy",
+      "rating": 4.7,
+      "plays": "97K",
+      "thumbnail": "assets/images/games/solstice-tactics.svg",
+      "featured": false,
+      "trending": false,
+      "new": false,
+      "accent": "#22d3ee",
+      "tags": [
+        "strategy",
+        "tactics",
+        "singleplayer",
+        "building",
+        "solstice"
+      ],
+      "description": "Command your forces and out-think the opposition in Solstice Tactics, where every decision reshapes the battlefield.",
+      "controls": [
+        {
+          "key": "Mouse",
+          "action": "Select / command units"
+        },
+        {
+          "key": "Space",
+          "action": "Pause & plan"
+        },
+        {
+          "key": "1-4",
+          "action": "Ability hotkeys"
+        }
+      ],
+      "releaseDate": "2025-10-08",
+      "editorsPick": false,
+      "playsCount": 97000,
+      "likes": 17460,
+      "reports": 0,
+      "playable": false,
+      "difficulty": "Medium",
+      "estPlayTime": "8-15 min"
+    }
   ]
 }

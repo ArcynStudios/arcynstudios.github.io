@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-page-title>Browse Games — Arcyn Studios</title>
+  <meta name="description" content="Browse free instant-play games by category on Arcyn Studios." data-page-description />
+  <meta name="theme-color" content="#0a0a14" />
+  <link rel="canonical" href="https://www.arcynstudios.com/categories/category.html" data-page-canonical />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Browse Games — Arcyn Studios" data-og-title />
+  <meta property="og:description" content="Browse free instant-play games by category on Arcyn Studios." data-og-description />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="manifest" href="../manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/game-page.css" />
+
+  <script type="application/ld+json" data-jsonld-category>
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Browse Games"
+  }
+  </script>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" data-site-header>
+    <div class="container nav">
+      <a class="brand" href="../index.html" aria-label="Arcyn Studios home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.2 18 12 11.2 15.8 18" stroke-width="1.6" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18 12 6 19 18" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="brand__name">Arcyn<span> Studios</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#trending">Trending</a>
+        <a href="../index.html#categories" class="is-active">Categories</a>
+        <a href="../index.html#new-releases">New Releases</a>
+        <a href="../index.html#all-games">All Games</a>
+      </nav>
+
+      <div class="search-bar search-bar--desktop" data-search-open role="button" tabindex="0" aria-label="Search games">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search 1,000+ games…" readonly aria-label="Search games" />
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-icon" data-search-open aria-label="Open search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn-icon theme-toggle" data-theme-toggle aria-label="Toggle dark or light mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn-icon nav-toggle" data-nav-toggle aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" data-mobile-drawer aria-hidden="true">
+    <div class="mobile-drawer__head">
+      <span class="brand">Arcyn Studios</span>
+      <button class="btn-icon" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile primary">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#trending">Trending</a>
+      <a href="../index.html#categories">Categories</a>
+      <a href="../index.html#all-games">All Games</a>
+    </nav>
+  </div>
+
+  <div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="Search games">
+    <div class="search-overlay__panel">
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        <input type="text" data-search-input placeholder="Search games, categories, tags…" aria-label="Search input" autocomplete="off" />
+        <button class="btn-icon" data-search-close aria-label="Close search" style="width:32px;height:32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="search-results" data-search-results></div>
+    </div>
+  </div>
+
+  <main id="main-content" class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a href="../index.html#categories">Categories</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-breadcrumb-name>Browse</span>
+    </nav>
+
+    <section class="category-banner" data-category-banner style="margin-top: var(--space-sm);">
+      <div class="skeleton" style="width:64px;height:64px;border-radius:var(--radius-lg);margin-bottom:var(--space-md);"></div>
+      <div class="skeleton" style="width:min(320px,60%);height:2.5rem;margin-bottom:var(--space-sm);"></div>
+      <div class="skeleton" style="width:min(480px,90%);height:1.25rem;"></div>
+    </section>
+
+    <section class="section" style="padding-block: var(--space-lg) var(--space-2xl);">
+      <div class="toolbar">
+        <div class="chip-row" data-category-tabs role="tablist" aria-label="Switch category"></div>
+        <div class="toolbar__sort">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select" data-sort-select>
+            <option value="popular">Most Played</option>
+            <option value="rating">Highest Rated</option>
+            <option value="new">Newest</option>
+            <option value="name">Name (A–Z)</option>
+          </select>
+        </div>
+      </div>
+      <p class="toolbar__count" data-result-count></p>
+      <div class="game-grid" data-category-grid style="margin-top: var(--space-md);">
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+      <div class="load-more">
+        <button type="button" class="btn btn-ghost" data-load-more hidden>Load more games</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> Arcyn Studios. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="../index.html">Home</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="category.js"></script>
+</body>
+</html>

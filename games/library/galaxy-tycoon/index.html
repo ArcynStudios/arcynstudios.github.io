@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Galaxy Tycoon</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { overflow: auto; touch-action: pan-y; }
+  .tycoon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 16px 32px;
+    min-height: 100%;
+    width: 100%;
+  }
+  .energy-readout { text-align: center; }
+  .energy-readout .amount {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    font-weight: 900;
+    background: linear-gradient(90deg,#a78bfa,#22d3ee 55%,#ff8fb3);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .energy-readout .rate { color: var(--g-text-dim); font-size: 13px; }
+  .mine-btn {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #a78bfa, #22187a 70%);
+    border: 2px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 40px rgba(124,92,255,0.5);
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .mine-btn:active { transform: scale(0.95); }
+  .shop {
+    width: min(94vw, 460px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .shop-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--g-border);
+  }
+  .shop-item.disabled { opacity: 0.45; }
+  .shop-item__info { text-align: left; }
+  .shop-item__info strong { display: block; font-size: 14px; }
+  .shop-item__info span { font-size: 12px; color: var(--g-text-dim); }
+  .shop-item button {
+    appearance: none; border: none; cursor: pointer; font: inherit; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px; background: var(--g-gradient); color: #fff;
+  }
+  .shop-item button:disabled { background: rgba(255,255,255,0.1); cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="game-stage" style="align-items: flex-start; overflow-y: auto;">
+    <div class="tycoon-wrap">
+      <div class="energy-readout">
+        <div class="amount" id="energy">0</div>
+        <div class="rate"><span id="rate">0</span> energy/sec</div>
+      </div>
+
+      <button class="mine-btn" id="mine-btn">TAP TO<br />MINE</button>
+
+      <div class="shop" id="shop"></div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Galaxy Tycoon</h1>
+      <p>Tap to mine energy, then invest it in automated generators. Progress saves automatically on this device.</p>
+      <button class="g-btn" id="start-btn">Launch Colony</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

@@ -66,7 +66,7 @@
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="Arcyn Studios home">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 11h4M8 9v4M15.5 11h.01M18 9.5h.01" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.32 5H6.68a4 4 0 0 0-3.93 3.27l-.7 3.85A3.5 3.5 0 0 0 5.5 16.5c.86 0 1.68-.34 2.29-.95L9.5 13.8a2 2 0 0 1 1.4-.58h2.2a2 2 0 0 1 1.4.58l1.71 1.75a3.24 3.24 0 0 0 5.6-2.21c0-.24-.02-.48-.07-.71l-.7-3.85A4 4 0 0 0 17.32 5Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.2 18 12 11.2 15.8 18" stroke-width="1.6" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18 12 6 19 18" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
         </span>
         <span class="brand__name">Arcyn<span> Studios</span></span>
       </a>
@@ -105,7 +105,7 @@
     <div class="mobile-drawer__head">
       <span class="brand">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 11h4M8 9v4M15.5 11h.01M18 9.5h.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.2 18 12 11.2 15.8 18" stroke-width="1.6" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18 12 6 19 18" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
         </span>
         Arcyn Studios
       </span>
@@ -248,6 +248,76 @@
       </div>
     </section>
 
+    <!-- ============================ EDITOR'S PICKS ============================ -->
+    <section class="section container" id="editors-picks" aria-labelledby="editors-title">
+      <div class="section-head">
+        <div class="section-head__text">
+          <span class="section-eyebrow">Curated by the studio</span>
+          <h2 class="section-title" id="editors-title">
+            <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2Z" stroke-linejoin="round"/></svg>
+            Editor's Picks
+          </h2>
+          <p class="section-sub">The titles our team keeps coming back to.</p>
+        </div>
+      </div>
+      <div class="game-grid" data-editors-grid>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- ============================ MOST PLAYED / HIGHEST RATED ============================ -->
+    <section class="section container" id="most-played" aria-labelledby="most-played-title">
+      <div class="section-head">
+        <div class="section-head__text">
+          <span class="section-eyebrow">By the numbers</span>
+          <h2 class="section-title" id="most-played-title">Most Played</h2>
+          <p class="section-sub">The community's most-clicked titles, ranked by total plays.</p>
+        </div>
+      </div>
+      <div class="scroller-wrap">
+        <div class="scroller" data-most-played-scroller>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="top-rated" aria-labelledby="top-rated-title">
+      <div class="section-head">
+        <div class="section-head__text">
+          <span class="section-eyebrow">Top scores</span>
+          <h2 class="section-title" id="top-rated-title">Highest Rated</h2>
+          <p class="section-sub">Sorted purely by player rating, no thumb on the scale.</p>
+        </div>
+      </div>
+      <div class="scroller-wrap">
+        <div class="scroller" data-top-rated-scroller>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+          <div class="skeleton skeleton-card" style="flex:0 0 260px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAVORITES (only shown once populated) ============================ -->
+    <section class="section container" id="favorites" aria-labelledby="favorites-title" data-favorites-section hidden>
+      <div class="section-head">
+        <div class="section-head__text">
+          <span class="section-eyebrow">Saved by you</span>
+          <h2 class="section-title" id="favorites-title">
+            <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.4 2.2 5 5.6 5 8 5 9.6 6.4 12 9c2.4-2.6 4-4 6.4-4 3.4 0 5 3.4 3.6 6.8C19.5 16.4 12 21 12 21Z" stroke-linejoin="round"/></svg>
+            Your Favorites
+          </h2>
+          <p class="section-sub">Saved on this device — stored locally, always one click away.</p>
+        </div>
+      </div>
+      <div class="game-grid" data-favorites-grid></div>
+    </section>
+
     <!-- ============================ ALL GAMES ============================ -->
     <section class="section container" id="all-games" aria-labelledby="all-games-title" data-all-games>
       <div class="section-head">
@@ -258,13 +328,17 @@
         </div>
       </div>
       <div class="chip-row" data-category-chips role="tablist" aria-label="Filter games by category"></div>
-      <div class="game-grid" data-game-grid style="margin-top: var(--space-md);">
+      <p class="toolbar__count" data-all-games-count style="margin-top: var(--space-sm);"></p>
+      <div class="game-grid" data-game-grid style="margin-top: var(--space-sm);">
         <div class="skeleton skeleton-card"></div>
         <div class="skeleton skeleton-card"></div>
         <div class="skeleton skeleton-card"></div>
         <div class="skeleton skeleton-card"></div>
         <div class="skeleton skeleton-card"></div>
         <div class="skeleton skeleton-card"></div>
+      </div>
+      <div class="load-more">
+        <button type="button" class="btn btn-ghost" data-load-more hidden>Load more games</button>
       </div>
     </section>
 
@@ -294,7 +368,7 @@
         <div class="footer-brand">
           <span class="brand">
             <span class="brand__mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 11h4M8 9v4M15.5 11h.01M18 9.5h.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8.2 18 12 11.2 15.8 18" stroke-width="1.6" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18 12 6 19 18" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
             </span>
             <span class="brand__name">Arcyn<span> Studios</span></span>
           </span>

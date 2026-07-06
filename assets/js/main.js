@@ -5,12 +5,20 @@
 import { initTheme } from './theme.js';
 import { initNav } from './nav.js';
 import { initSearch } from './search.js';
-import { renderCards } from './game-card.js';
+import { renderCards, initFavoriteButtons, initAutoReveal } from './game-card.js';
 import { CATEGORIES } from './categories.js';
 import { iconMarkup } from './icons.js';
+import { getFeatured, getTrending, getNewReleases, getEditorsPicks, getMostPlayed, getHighestRated } from './collections.js';
+import { getFavorites, onFavoritesChange } from './favorites.js';
+
+const PAGE_SIZE = 12;
+let visibleCount = PAGE_SIZE;
+let activeCategoryFilter = 'All';
 
 initTheme();
 initNav();
+initFavoriteButtons();
+initAutoReveal();
 initYear();
 initNewsletter();
 releaseLoadingState();
@@ -86,7 +94,8 @@ function initCountUp() {
 function initScrollers() {
   document.querySelectorAll('.scroller-wrap').forEach((wrap) => {
     const rail = wrap.querySelector('.scroller');
-    if (!rail) return;
+    if (!rail || wrap.dataset.bound) return;
+    wrap.dataset.bound = 'true';
     const update = () => {
       const maxScroll = rail.scrollWidth - rail.clientWidth;
       wrap.classList.toggle('is-scrollable', rail.scrollLeft < maxScroll - 4);
@@ -94,29 +103,45 @@ function initScrollers() {
     };
     rail.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
-    // Content loads asynchronously, so re-check shortly after render.
     requestAnimationFrame(update);
     setTimeout(update, 400);
   });
 }
 
 function renderHome(games) {
-  const featured = games.filter((g) => g.featured).slice(0, 4);
-  const trending = games.filter((g) => g.trending);
-  const recent = games.filter((g) => g.new);
-
-  setGrid('[data-featured-grid]', featured.length ? featured : games.slice(0, 4));
-  setGrid('[data-trending-scroller]', trending.length ? trending : games.slice(0, 8));
-  setGrid('[data-recent-grid]', recent.length ? recent : games.slice(0, 6));
+  setGrid('[data-featured-grid]', getFeatured(games, 4));
+  setGrid('[data-trending-scroller]', getTrending(games).length ? getTrending(games) : games.slice(0, 8));
+  setGrid('[data-recent-grid]', getNewReleases(games).length ? getNewReleases(games).slice(0, 6) : games.slice(0, 6));
+  setGrid('[data-editors-grid]', getEditorsPicks(games).length ? getEditorsPicks(games) : games.slice(0, 4));
+  setGrid('[data-most-played-scroller]', getMostPlayed(games));
+  setGrid('[data-top-rated-scroller]', getHighestRated(games));
 
   renderCategories(games);
+  renderFavoritesSection(games);
   renderAllGames(games);
   initScrollers();
+
+  onFavoritesChange(() => renderFavoritesSection(games));
 }
 
-function setGrid(selector, games) {
+function setGrid(selector, games, { empty } = {}) {
   const el = document.querySelector(selector);
-  if (el) el.innerHTML = renderCards(games);
+  if (!el) return;
+  if (!games.length) {
+    el.innerHTML = empty || emptyStateMarkup('Nothing here yet', 'Check back soon as the catalog grows.');
+    return;
+  }
+  el.innerHTML = renderCards(games);
+}
+
+function emptyStateMarkup(title, body, icon = 'gamepad') {
+  return `
+    <div class="state-panel">
+      <span class="state-panel__icon">${iconMarkup(icon)}</span>
+      <h3>${title}</h3>
+      <p>${body}</p>
+    </div>
+  `;
 }
 
 function renderCategories(games) {
@@ -126,27 +151,35 @@ function renderCategories(games) {
   el.innerHTML = CATEGORIES.map((cat) => {
     const count = games.filter((g) => g.category === cat.name).length;
     return `
-      <a class="category-card reveal" href="#" data-filter="${cat.name}" style="--cat-color:${cat.color};">
+      <a class="category-card reveal" href="categories/category.html?name=${encodeURIComponent(cat.name)}" style="--cat-color:${cat.color};">
         <span class="category-card__icon">${iconMarkup(cat.icon, 'style="width:24px;height:24px;"')}</span>
         <span class="category-card__name">${cat.name}${iconMarkup('chevronRight', 'class="category-card__arrow"')}</span>
         <span class="category-card__count">${count} games</span>
       </a>
     `;
   }).join('');
+}
 
-  el.querySelectorAll('[data-filter]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const chip = document.querySelector(`.chip[data-filter="${link.dataset.filter}"]`);
-      chip?.click();
-      document.querySelector('[data-all-games]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+/** Favorites are personal, so the whole section stays hidden until the visitor has saved at least one game. */
+function renderFavoritesSection(games) {
+  const section = document.querySelector('[data-favorites-section]');
+  const grid = document.querySelector('[data-favorites-grid]');
+  if (!section || !grid) return;
+
+  const favoriteIds = getFavorites();
+  const favoriteGames = games.filter((g) => favoriteIds.includes(g.id));
+
+  section.hidden = favoriteGames.length === 0;
+  if (favoriteGames.length) {
+    grid.innerHTML = renderCards(favoriteGames);
+  }
 }
 
 function renderAllGames(games) {
   const grid = document.querySelector('[data-game-grid]');
   const chipRow = document.querySelector('[data-category-chips]');
+  const countEl = document.querySelector('[data-all-games-count]');
+  const loadMoreBtn = document.querySelector('[data-load-more]');
   if (!grid || !chipRow) return;
 
   const categories = ['All', ...new Set(games.map((g) => g.category))];
@@ -154,25 +187,62 @@ function renderAllGames(games) {
     .map((cat, i) => `<button class="chip${i === 0 ? ' is-active' : ''}" data-filter="${cat}">${cat}</button>`)
     .join('');
 
-  grid.innerHTML = renderCards(games);
+  const paint = () => {
+    const filtered = activeCategoryFilter === 'All' ? games : games.filter((g) => g.category === activeCategoryFilter);
+    const slice = filtered.slice(0, visibleCount);
+
+    grid.classList.remove('grid-transition');
+    grid.innerHTML = filtered.length
+      ? renderCards(slice)
+      : emptyStateMarkup('No games match that filter', 'Try a different category, or check back as more games are added.');
+    void grid.offsetWidth;
+    grid.classList.add('grid-transition');
+
+    if (countEl) countEl.textContent = `Showing ${slice.length} of ${filtered.length} games`;
+    if (loadMoreBtn) loadMoreBtn.hidden = visibleCount >= filtered.length;
+  };
 
   chipRow.addEventListener('click', (e) => {
     const chip = e.target.closest('.chip');
     if (!chip) return;
     chipRow.querySelectorAll('.chip').forEach((c) => c.classList.remove('is-active'));
     chip.classList.add('is-active');
-    const filter = chip.dataset.filter;
-    const filtered = filter === 'All' ? games : games.filter((g) => g.category === filter);
-    grid.innerHTML = renderCards(filtered);
-    observeReveals();
+    activeCategoryFilter = chip.dataset.filter;
+    visibleCount = PAGE_SIZE;
+    paint();
   });
 
-  observeReveals();
+  loadMoreBtn?.addEventListener('click', () => {
+    visibleCount += PAGE_SIZE;
+    paint();
+  });
+
+  paint();
 }
 
 function renderLoadError() {
-  document.querySelectorAll('[data-featured-grid], [data-trending-scroller], [data-recent-grid], [data-game-grid]').forEach((el) => {
-    el.innerHTML = '<p class="search-empty">Unable to load games right now. Please refresh the page.</p>';
+  const selectors = [
+    '[data-featured-grid]',
+    '[data-trending-scroller]',
+    '[data-recent-grid]',
+    '[data-editors-grid]',
+    '[data-most-played-scroller]',
+    '[data-top-rated-scroller]',
+    '[data-game-grid]'
+  ];
+  document.querySelectorAll(selectors.join(', ')).forEach((el) => {
+    el.innerHTML = `
+      <div class="state-panel state-panel--error">
+        <span class="state-panel__icon">${iconMarkup('close')}</span>
+        <h3>Couldn't load games</h3>
+        <p>Something went wrong fetching the catalog.</p>
+        <button type="button" class="btn btn-ghost btn-sm" data-retry-load>Try again</button>
+      </div>
+    `;
+  });
+
+  document.querySelectorAll('[data-retry-load]').forEach((btn) => {
+    btn.addEventListener('click', () => window.location.reload(), { once: true });
   });
 }
 
@@ -192,26 +262,3 @@ function initNewsletter() {
     success?.classList.add('is-visible');
   });
 }
-
-function observeReveals() {
-  const items = document.querySelectorAll('.reveal:not(.is-revealed)');
-  if (!('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('is-revealed'));
-    return;
-  }
-  const io = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationDelay = `${Math.min(i * 40, 240)}ms`;
-          entry.target.classList.add('is-revealed');
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-  items.forEach((el) => io.observe(el));
-}
-
-document.addEventListener('DOMContentLoaded', observeReveals);

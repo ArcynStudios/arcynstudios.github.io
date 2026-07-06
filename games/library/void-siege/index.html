@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Void Siege</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+  <div class="game-stage">
+    <canvas id="c" aria-label="Void Siege game canvas"></canvas>
+
+    <div class="hud">
+      <span class="hud__pill">💥 <span id="score">0</span></span>
+      <span class="hud__pill">🌊 Wave <span id="wave">1</span></span>
+      <span class="hud__pill">❤ <span id="hp">100</span></span>
+    </div>
+
+    <div class="touch-pad">
+      <div class="touch-pad__group">
+        <button class="touch-btn" id="btn-left" aria-label="Move left">◀</button>
+        <button class="touch-btn" id="btn-right" aria-label="Move right">▶</button>
+      </div>
+      <div class="touch-pad__group">
+        <button class="touch-btn" id="btn-up" aria-label="Move up">▲</button>
+        <button class="touch-btn" id="btn-down" aria-label="Move down">▼</button>
+        <button class="touch-btn" id="btn-fire" aria-label="Fire">●</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Void Siege</h1>
+      <p>Move with WASD / arrows. Aim with your mouse, click or press Space to fire. Survive the waves.</p>
+      <button class="g-btn" id="start-btn">Deploy</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

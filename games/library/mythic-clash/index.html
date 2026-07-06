@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Mythic Clash</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  .clash-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+  }
+  .bars {
+    display: flex;
+    gap: 16px;
+    width: min(90vw, 480px);
+  }
+  .bar-group { flex: 1; }
+  .bar-label { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+  .bar-label .you { color: var(--g-cyan); }
+  .bar-label .rival { color: var(--g-pink); }
+  .bar-track { height: 10px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px; transition: width 200ms ease; }
+  .bar-fill.you-fill { background: linear-gradient(90deg,#22d3ee,#7c5cff); margin-left: auto; }
+  .bar-fill.rival-fill { background: linear-gradient(90deg,#ff5c8a,#ffb444); }
+
+  .arena {
+    width: min(90vw, 480px);
+    height: 220px;
+    border-radius: 20px;
+    border: 1px solid var(--g-border);
+    background: radial-gradient(ellipse at 50% 40%, rgba(124,92,255,0.18), transparent 70%), rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+  }
+  .arena.wait { color: var(--g-text-dim); font-size: 1rem; text-transform: none; font-weight: 600; letter-spacing: normal; }
+  .arena.clash { color: #fff; background: linear-gradient(135deg, rgba(124,92,255,0.4), rgba(255,92,138,0.4)); }
+  .arena.early { color: var(--g-pink); }
+  .round-msg { font-size: 13px; color: var(--g-text-dim); min-height: 18px; }
+</style>
+</head>
+<body>
+  <div class="game-stage">
+    <div class="clash-wrap">
+      <div class="bars">
+        <div class="bar-group">
+          <div class="bar-label"><span class="you">You</span></div>
+          <div class="bar-track"><div class="bar-fill you-fill" id="you-hp" style="width:100%"></div></div>
+        </div>
+        <div class="bar-group">
+          <div class="bar-label"><span class="rival">Rival</span></div>
+          <div class="bar-track"><div class="bar-fill rival-fill" id="rival-hp" style="width:100%"></div></div>
+        </div>
+      </div>
+
+      <div class="arena wait" id="arena">Get ready…</div>
+      <div class="round-msg" id="round-msg"></div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Mythic Clash</h1>
+      <p>Wait for "CLASH!" to appear, then tap or press Space as fast as you can. Strike too early and you'll take the hit instead.</p>
+      <button class="g-btn" id="start-btn">Enter the Arena</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

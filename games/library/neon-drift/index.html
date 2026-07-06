@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Neon Drift</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+  <div class="game-stage">
+    <canvas id="c" aria-label="Neon Drift game canvas"></canvas>
+
+    <div class="hud">
+      <span class="hud__pill">🏁 <span id="score">0</span>m</span>
+      <span class="hud__pill">🏆 <span id="best">0</span>m</span>
+    </div>
+
+    <div class="touch-pad">
+      <div class="touch-pad__group">
+        <button class="touch-btn" id="btn-left" aria-label="Move left">◀</button>
+        <button class="touch-btn" id="btn-right" aria-label="Move right">▶</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Neon Drift</h1>
+      <p>Weave through traffic and rack up distance. Use ◀ ▶ / A D to change lanes.</p>
+      <button class="g-btn" id="start-btn">Start Engine</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
