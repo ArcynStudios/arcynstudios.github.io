@@ -156,7 +156,9 @@ function wireActions(game) {
   startBtn?.addEventListener('click', () => {
     if (!shell || !game.playable) return;
     const iframe = document.createElement('iframe');
-    iframe.src = `../${game.playUrl}`;
+    // playUrl (e.g. "library/neon-drift/index.html") is already relative to
+    // this page's own /games/ directory — no "../" needed.
+    iframe.src = game.playUrl;
     iframe.title = `${game.name} — playable game`;
     iframe.allow = 'fullscreen; autoplay';
     iframe.setAttribute('allowfullscreen', '');
