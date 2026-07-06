@@ -1,0 +1,19 @@
+{
+  "name": "Arcyn Studios",
+  "short_name": "Arcyn",
+  "description": "A premium gaming ecosystem — instant-play games from Arcyn Studios. No downloads, no installs.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a14",
+  "theme_color": "#0a0a14",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

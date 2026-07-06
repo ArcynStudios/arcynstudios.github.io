@@ -1,0 +1,22 @@
+{
+  "games": [
+    { "id": "neon-drift", "name": "Neon Drift", "category": "Racing", "rating": 4.8, "plays": "128K", "thumbnail": "assets/images/games/neon-drift.svg", "featured": true, "trending": true, "new": false, "accent": "#7c5cff" },
+    { "id": "void-siege", "name": "Void Siege", "category": "Shooter", "rating": 4.6, "plays": "94K", "thumbnail": "assets/images/games/void-siege.svg", "featured": true, "trending": false, "new": false, "accent": "#ff5c8a" },
+    { "id": "pixel-kingdoms", "name": "Pixel Kingdoms", "category": "Strategy", "rating": 4.9, "plays": "210K", "thumbnail": "assets/images/games/pixel-kingdoms.svg", "featured": true, "trending": true, "new": false, "accent": "#22d3ee" },
+    { "id": "starfall-arena", "name": "Starfall Arena", "category": "Action", "rating": 4.7, "plays": "76K", "thumbnail": "assets/images/games/starfall-arena.svg", "featured": true, "trending": false, "new": true, "accent": "#ffb444" },
+    { "id": "chrono-puzzle", "name": "Chrono Puzzle", "category": "Puzzle", "rating": 4.5, "plays": "63K", "thumbnail": "assets/images/games/chrono-puzzle.svg", "featured": false, "trending": true, "new": false, "accent": "#7c5cff" },
+    { "id": "abyss-runner", "name": "Abyss Runner", "category": "Arcade", "rating": 4.4, "plays": "51K", "thumbnail": "assets/images/games/abyss-runner.svg", "featured": false, "trending": true, "new": false, "accent": "#22d3ee" },
+    { "id": "mythic-clash", "name": "Mythic Clash", "category": "Fighting", "rating": 4.8, "plays": "142K", "thumbnail": "assets/images/games/mythic-clash.svg", "featured": false, "trending": true, "new": false, "accent": "#ff5c8a" },
+    { "id": "galaxy-tycoon", "name": "Galaxy Tycoon", "category": "Simulation", "rating": 4.3, "plays": "38K", "thumbnail": "assets/images/games/galaxy-tycoon.svg", "featured": false, "trending": false, "new": true, "accent": "#ffb444" },
+    { "id": "shadow-blade", "name": "Shadow Blade", "category": "Action", "rating": 4.7, "plays": "88K", "thumbnail": "assets/images/games/shadow-blade.svg", "featured": false, "trending": false, "new": true, "accent": "#7c5cff" },
+    { "id": "quantum-maze", "name": "Quantum Maze", "category": "Puzzle", "rating": 4.6, "plays": "47K", "thumbnail": "assets/images/games/quantum-maze.svg", "featured": false, "trending": false, "new": true, "accent": "#22d3ee" },
+    { "id": "reef-rally", "name": "Reef Rally", "category": "Racing", "rating": 4.2, "plays": "29K", "thumbnail": "assets/images/games/reef-rally.svg", "featured": false, "trending": false, "new": true, "accent": "#ff5c8a" },
+    { "id": "ember-legion", "name": "Ember Legion", "category": "Strategy", "rating": 4.9, "plays": "167K", "thumbnail": "assets/images/games/ember-legion.svg", "featured": false, "trending": true, "new": false, "accent": "#ffb444" },
+    { "id": "frostbyte", "name": "Frostbyte", "category": "Adventure", "rating": 4.5, "plays": "55K", "thumbnail": "assets/images/games/frostbyte.svg", "featured": false, "trending": false, "new": false, "accent": "#22d3ee" },
+    { "id": "nova-strike", "name": "Nova Strike", "category": "Shooter", "rating": 4.6, "plays": "72K", "thumbnail": "assets/images/games/nova-strike.svg", "featured": false, "trending": false, "new": false, "accent": "#7c5cff" },
+    { "id": "obsidian-court", "name": "Obsidian Court", "category": "Puzzle", "rating": 4.4, "plays": "33K", "thumbnail": "assets/images/games/obsidian-court.svg", "featured": false, "trending": false, "new": false, "accent": "#ff5c8a" },
+    { "id": "hyperloop-heist", "name": "Hyperloop Heist", "category": "Arcade", "rating": 4.3, "plays": "41K", "thumbnail": "assets/images/games/hyperloop-heist.svg", "featured": false, "trending": false, "new": false, "accent": "#ffb444" },
+    { "id": "wraith-protocol", "name": "Wraith Protocol", "category": "Action", "rating": 4.8, "plays": "119K", "thumbnail": "assets/images/games/wraith-protocol.svg", "featured": false, "trending": true, "new": false, "accent": "#7c5cff" },
+    { "id": "solstice-tactics", "name": "Solstice Tactics", "category": "Strategy", "rating": 4.7, "plays": "97K", "thumbnail": "assets/images/games/solstice-tactics.svg", "featured": false, "trending": false, "new": false, "accent": "#22d3ee" }
+  ]
+}
