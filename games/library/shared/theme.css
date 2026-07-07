@@ -176,3 +176,100 @@ canvas {
 }
 
 .touch-btn:active { background: rgba(255, 255, 255, 0.18); }
+
+/* ---------------- Shared HUD controls (pause / mute / restart) ---------------- */
+.hud__controls {
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--g-border);
+  background: rgba(5, 5, 10, 0.55);
+  color: var(--g-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 150ms ease, transform 150ms ease;
+  font-size: 15px;
+}
+
+.icon-btn:hover { background: rgba(255, 255, 255, 0.12); }
+.icon-btn:active { transform: scale(0.92); }
+.icon-btn svg { width: 16px; height: 16px; }
+
+/* ---------------- Difficulty / mode selectors ---------------- */
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.option-btn {
+  appearance: none;
+  border: 1px solid var(--g-border);
+  background: var(--g-panel);
+  color: var(--g-text-dim);
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.option-btn:hover { color: var(--g-text); border-color: rgba(255, 255, 255, 0.25); }
+
+.option-btn.is-active {
+  color: #fff;
+  background: var(--g-gradient);
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(124, 92, 255, 0.4);
+}
+
+/* ---------------- Instructions list ---------------- */
+.how-to-list {
+  text-align: left;
+  color: var(--g-text-dim);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 34ch;
+  padding-left: 1.1em;
+  margin: 0;
+}
+
+.how-to-list li::marker { color: var(--g-cyan); }
+
+.stat-row {
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  color: var(--g-text-dim);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-row strong { color: var(--g-text); }
+
+/* Generic pause layer — distinct from the start/end .overlay so restart
+   can bring the board back without re-triggering entrance content. */
+.pause-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 10, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.pause-layer[hidden] { display: none; }

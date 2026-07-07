@@ -56,6 +56,12 @@ export const CATEGORIES = [
     icon: 'adventure',
     color: '#7c5cff',
     description: 'Hand-crafted worlds full of secrets. Every corner rewards curiosity.'
+  },
+  {
+    name: 'Board',
+    icon: 'board',
+    color: '#35e0a1',
+    description: 'Timeless tabletop classics — face the AI or pass the device for local multiplayer.'
   }
 ];
 

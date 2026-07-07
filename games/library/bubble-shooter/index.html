@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Bubble Shooter</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+  <div class="game-stage">
+    <canvas id="c" aria-label="Bubble Shooter game canvas"></canvas>
+
+    <div class="hud">
+      <span class="hud__pill">⭐ <span id="score">0</span></span>
+      <span class="hud__pill">🏆 <span id="best">0</span></span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Bubble Shooter</h1>
+      <ul class="how-to-list">
+        <li>Aim with your mouse or finger, tap/click to shoot.</li>
+        <li>Match 3 or more same-colored bubbles to pop them.</li>
+        <li>Clear the board before the bubbles reach the bottom line.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

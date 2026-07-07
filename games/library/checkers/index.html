@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Checkers</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:12px; padding:12px; height:100%; justify-content:center; }
+  .board { display:grid; grid-template-columns:repeat(8,1fr); width:min(92vw,420px); aspect-ratio:1; border-radius:12px; overflow:hidden; border:1px solid var(--g-border); }
+  .cell { display:flex; align-items:center; justify-content:center; position:relative; }
+  .cell.dark { background:#2a2a3d; }
+  .cell.light { background:#3d3d55; }
+  .cell.selected { outline:3px solid var(--g-cyan); outline-offset:-3px; }
+  .cell.hint::after { content:''; position:absolute; width:24%; height:24%; border-radius:50%; background:rgba(53,224,161,0.7); }
+  .piece { width:76%; height:76%; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; transition:transform 200ms ease; }
+  .piece.p1 { background:radial-gradient(circle at 35% 30%, #6de8ff, var(--g-cyan)); }
+  .piece.p2 { background:radial-gradient(circle at 35% 30%, #ff9dc0, var(--g-pink)); }
+  .piece.king { box-shadow:0 0 0 3px rgba(255,180,68,0.7) inset; }
+  .piece.moving { animation:pop 200ms ease; }
+  @keyframes pop { from{transform:scale(0.6);} to{transform:scale(1);} }
+</style>
+</head>
+<body>
+  <div class="game-stage">
+    <div class="hud">
+      <span class="hud__pill" id="turn-indicator">Your turn</span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stat-row">
+        <span>You <strong id="score-p1">12</strong></span>
+        <span>Opponent <strong id="score-p2">12</strong></span>
+        <span>Wins <strong id="stat-wins">0</strong></span>
+      </div>
+      <div class="board" id="board" role="grid" aria-label="Checkers board"></div>
+      <div class="option-row" id="mode-row">
+        <button class="option-btn is-active" data-mode="ai-easy">Vs AI · Easy</button>
+        <button class="option-btn" data-mode="ai-hard">Vs AI · Hard</button>
+        <button class="option-btn" data-mode="two-player">2 Player</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Checkers</h1>
+      <ul class="how-to-list">
+        <li>Move diagonally, one step, onto empty dark squares.</li>
+        <li>Jump over an adjacent enemy piece to capture it — captures are mandatory when available.</li>
+        <li>Reach the far row to crown a King, which moves diagonally either direction.</li>
+        <li>Capture all enemy pieces (or leave them no moves) to win.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

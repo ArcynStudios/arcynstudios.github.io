@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+    <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgb(140, 99, 37)" />
+      <stop offset="55%" stop-color="#0a0a14" />
+      <stop offset="100%" stop-color="#05050a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffb444" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#ffb444" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="45%" r="75%">
+      <stop offset="55%" stop-color="#000000" stop-opacity="0" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.55" />
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise" />
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0" />
+    </filter>
+    <filter id="blur"><feGaussianBlur stdDeviation="8" /></filter>
+  </defs>
+    
+    <rect width="800" height="450" fill="url(#bg)" />
+    <rect width="800" height="450" fill="url(#glow)" />
+  
+    <rect x="-34.13894728990272" y="-34.13894728990272" width="68.27789457980543" height="68.27789457980543" rx="12.290021024364977" fill="#ffb444" opacity="0.24396746824495497" transform="translate(226.66001450270414 81.3039626693353) rotate(16.156302094459534)" /><rect x="-35.433377352310345" y="-35.433377352310345" width="70.86675470462069" height="70.86675470462069" rx="12.756015846831724" fill="#22d3ee" opacity="0.1686946782283485" transform="translate(3.441249020397663 212.6204686006531) rotate(-14.571310803294182)" /><rect x="-43.65321957971901" y="-43.65321957971901" width="87.30643915943801" height="87.30643915943801" rx="15.715159048698842" fill="#22d3ee" opacity="0.2206329852016643" transform="translate(764.22074791044 5.206283368170261) rotate(-19.03975136578083)" /><rect x="-25.92592330998741" y="-25.92592330998741" width="51.85184661997482" height="51.85184661997482" rx="9.333332391595468" fill="#ffb444" opacity="0.23856825911439955" transform="translate(166.68107695877552 238.88895782874897) rotate(0.022347737103700638)" /><rect x="-48.78339928109199" y="-48.78339928109199" width="97.56679856218398" height="97.56679856218398" rx="17.562023741193116" fill="#22d3ee" opacity="0.24133053994737566" transform="translate(303.1914509832859 208.00736581441015) rotate(-5.161267556250095)" /><rect x="-46.72281911363825" y="-46.72281911363825" width="93.4456382272765" height="93.4456382272765" rx="16.82021488090977" fill="#22d3ee" opacity="0.29140220953151585" transform="translate(74.54117517918348 353.7711070734076) rotate(0.31499626114964485)" /><rect x="-30.50217477721162" y="-30.50217477721162" width="61.00434955442324" height="61.00434955442324" rx="10.980782919796184" fill="#ffb444" opacity="0.2981639493675903" transform="translate(650.4935000091791 167.36796917393804) rotate(-3.356571439653635)" /><rect x="-54.70009467098862" y="-54.70009467098862" width="109.40018934197724" height="109.40018934197724" rx="19.692034081555903" fill="#22d3ee" opacity="0.15514751967974008" transform="translate(701.6444623470306 31.245111173484474) rotate(6.8373265489935875)" /><rect x="-30.613359312992543" y="-30.613359312992543" width="61.226718625985086" height="61.226718625985086" rx="11.020809352677315" fill="#22d3ee" opacity="0.23862415748182686" transform="translate(200.4963083192706 56.91334989387542) rotate(-4.08655502833426)" />
+    
+    <rect width="800" height="450" fill="url(#vignette)" />
+    <rect width="800" height="450" filter="url(#grain)" opacity="0.5" />
+  
+    <text x="786" y="436" text-anchor="end" font-family="Sora, sans-serif" font-weight="800" font-size="14" letter-spacing="2" fill="#ffffff" opacity="0.35">ARCYN</text>
+  </svg>

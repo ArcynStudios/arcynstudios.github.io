@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Reversi</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:12px; padding:12px; height:100%; justify-content:center; }
+  .board { display:grid; grid-template-columns:repeat(8,1fr); gap:3px; width:min(92vw,420px); aspect-ratio:1; background:#0d3b2a; padding:8px; border-radius:12px; border:1px solid var(--g-border); }
+  .cell { background:#12523a; border-radius:3px; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative; }
+  .cell.hint::after { content:''; position:absolute; width:22%; height:22%; border-radius:50%; background:rgba(255,255,255,0.35); }
+  .disc { width:82%; height:82%; border-radius:50%; transition:transform 300ms ease; }
+  .disc.p1 { background:radial-gradient(circle at 35% 30%, #6de8ff, var(--g-cyan)); }
+  .disc.p2 { background:radial-gradient(circle at 35% 30%, #2a2a38, #050508); }
+  .disc.flip { animation:flip 300ms ease; }
+  @keyframes flip { 0%{transform:scaleX(0.1) rotateY(180deg);} 100%{transform:scaleX(1);} }
+</style>
+</head>
+<body>
+  <div class="game-stage">
+    <div class="hud">
+      <span class="hud__pill" id="turn-indicator">Your turn</span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stat-row">
+        <span>You <strong id="score-p1">2</strong></span>
+        <span>Opponent <strong id="score-p2">2</strong></span>
+        <span>Wins <strong id="stat-wins">0</strong></span>
+      </div>
+      <div class="board" id="board" role="grid" aria-label="Reversi board"></div>
+      <div class="option-row" id="mode-row">
+        <button class="option-btn is-active" data-mode="ai-easy">Vs AI · Easy</button>
+        <button class="option-btn" data-mode="ai-hard">Vs AI · Hard</button>
+        <button class="option-btn" data-mode="two-player">2 Player</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Reversi</h1>
+      <ul class="how-to-list">
+        <li>Place a disc to trap opponent discs between two of yours.</li>
+        <li>Trapped discs flip to your color.</li>
+        <li>Most discs on the board when it's full wins.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

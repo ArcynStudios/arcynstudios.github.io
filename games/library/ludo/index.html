@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Ludo</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; overflow-y:auto; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:14px; padding:16px; min-height:100%; justify-content:center; }
+  .board { position:relative; width:min(92vw,420px); aspect-ratio:1; border-radius:20px; background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05), transparent 70%), rgba(255,255,255,0.03); border:1px solid var(--g-border); }
+  .cell-dot { position:absolute; width:5.5%; height:5.5%; border-radius:50%; background:rgba(255,255,255,0.08); transform:translate(-50%,-50%); }
+  .cell-dot.safe { background:rgba(53,224,161,0.35); }
+  .token { position:absolute; width:8%; height:8%; border-radius:50%; transform:translate(-50%,-50%); border:2px solid rgba(255,255,255,0.6); cursor:pointer; transition:left 220ms ease, top 220ms ease; z-index:2; }
+  .token.movable { box-shadow:0 0 0 4px rgba(255,255,255,0.5); animation:tokenPulse 1s ease-in-out infinite; }
+  @keyframes tokenPulse { 0%,100%{transform:translate(-50%,-50%) scale(1);} 50%{transform:translate(-50%,-50%) scale(1.2);} }
+  .hub { position:absolute; left:50%; top:50%; width:14%; height:14%; transform:translate(-50%,-50%); border-radius:50%; background:var(--g-gradient); display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+  .die { width:64px; height:64px; border-radius:14px; background:var(--g-panel); border:1px solid var(--g-border); display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:800; cursor:pointer; }
+  .die.rolling { animation:roll 400ms ease; }
+  @keyframes roll { 0%,100%{transform:rotate(0);} 50%{transform:rotate(180deg);} }
+  .turn-row { display:flex; align-items:center; gap:14px; }
+</style>
+</head>
+<body>
+  <div class="game-stage" style="align-items:flex-start; overflow-y:auto;">
+    <div class="hud">
+      <span class="hud__pill" id="turn-indicator">Set up players</span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="board" id="board"></div>
+      <div class="turn-row">
+        <button class="die" id="die-btn">🎲</button>
+        <span id="die-hint" style="color:var(--g-text-dim); font-size:13px;">Tap to roll</span>
+      </div>
+      <div class="option-row" id="player-row">
+        <button class="option-btn" data-players="2">2 Players</button>
+        <button class="option-btn is-active" data-players="3">3 Players</button>
+        <button class="option-btn" data-players="4">4 Players</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Ludo</h1>
+      <ul class="how-to-list">
+        <li>Roll a 6 to bring a token out of your yard.</li>
+        <li>Move a token the exact number rolled around the track.</li>
+        <li>Land on an opponent (off the green safe spots) to send them home.</li>
+        <li>Get all 4 tokens to the center hub to win. Rolling a 6 grants another turn.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

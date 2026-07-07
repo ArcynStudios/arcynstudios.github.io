@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Snakes &amp; Ladders</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; overflow-y:auto; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:14px; padding:16px; min-height:100%; justify-content:center; }
+  .board { display:grid; grid-template-columns:repeat(10,1fr); grid-template-rows:repeat(10,1fr); width:min(92vw,440px); aspect-ratio:1; border:1px solid var(--g-border); border-radius:12px; overflow:hidden; }
+  .cell { position:relative; display:flex; align-items:flex-start; justify-content:flex-end; padding:2px 4px; font-size:9px; color:var(--g-text-dim); }
+  .cell:nth-child(odd) { background:rgba(255,255,255,0.03); }
+  .cell.ladder-bottom { background:rgba(53,224,161,0.18); }
+  .cell.ladder-top { background:rgba(53,224,161,0.32); }
+  .cell.snake-head { background:rgba(255,92,138,0.32); }
+  .cell.snake-tail { background:rgba(255,92,138,0.18); }
+  .tokens-in-cell { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:1px; flex-wrap:wrap; padding-top:8px; }
+  .token-dot { width:20%; height:20%; border-radius:50%; border:1px solid rgba(255,255,255,0.6); }
+  .die { width:64px; height:64px; border-radius:14px; background:var(--g-panel); border:1px solid var(--g-border); display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:800; cursor:pointer; }
+  .die.rolling { animation:roll 400ms ease; }
+  @keyframes roll { 0%,100%{transform:rotate(0);} 50%{transform:rotate(180deg);} }
+  .turn-row { display:flex; align-items:center; gap:14px; }
+  .players-legend { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; font-size:12px; }
+  .players-legend span { display:inline-flex; align-items:center; gap:5px; }
+  .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; }
+</style>
+</head>
+<body>
+  <div class="game-stage" style="align-items:flex-start; overflow-y:auto;">
+    <div class="hud">
+      <span class="hud__pill" id="turn-indicator">Set up players</span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="board" id="board"></div>
+      <div class="players-legend" id="legend"></div>
+      <div class="turn-row">
+        <button class="die" id="die-btn">🎲</button>
+        <span id="die-hint" style="color:var(--g-text-dim); font-size:13px;">Tap to roll</span>
+      </div>
+      <div class="option-row" id="player-row">
+        <button class="option-btn" data-players="2">2 Players</button>
+        <button class="option-btn is-active" data-players="3">3 Players</button>
+        <button class="option-btn" data-players="4">4 Players</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Snakes &amp; Ladders</h1>
+      <ul class="how-to-list">
+        <li>Roll the die and move your token forward that many squares.</li>
+        <li>Climb ladders, but watch out for snakes — they send you back down.</li>
+        <li>You need the exact roll to land on square 100. First there wins.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

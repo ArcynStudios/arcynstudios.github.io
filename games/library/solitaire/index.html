@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Solitaire</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; overflow:auto; }
+  .table { width:100%; box-sizing:border-box; padding:56px 10px 24px; min-height:100%; display:flex; flex-direction:column; gap:16px; align-items:center; }
+  .row { display:flex; gap:8px; width:100%; max-width:620px; justify-content:space-between; }
+  .pile { width:13.5%; aspect-ratio:0.7; position:relative; }
+  .pile-slot { position:absolute; inset:0; border:2px dashed rgba(255,255,255,0.15); border-radius:8px; }
+  .card { position:absolute; inset:0; border-radius:8px; background:#f4f4fa; display:flex; flex-direction:column; justify-content:space-between; padding:4px; font-weight:800; font-size:clamp(10px,2.6vw,15px); cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,0.4); user-select:none; }
+  .card.red { color:#d43f5f; }
+  .card.black { color:#1a1a26; }
+  .card.face-down { background:linear-gradient(135deg,#7c5cff,#22d3ee); }
+  .card.selected { outline:3px solid var(--g-cyan); transform:translateY(-6px); }
+  .tableau-col { width:13.5%; min-height:160px; position:relative; }
+  .tableau-col .card { position:absolute; left:0; right:0; }
+  .foundation .card-rank { font-size:1.4rem; text-align:center; margin:auto; opacity:0.4; }
+</style>
+</head>
+<body>
+  <div class="game-stage" style="align-items:flex-start; overflow-y:auto;">
+    <div class="hud">
+      <span class="hud__pill">⭐ <span id="score">0</span></span>
+      <span class="hud__pill">⏱ <span id="time">0:00</span></span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="row">
+        <div class="pile" id="stock"><div class="pile-slot"></div></div>
+        <div class="pile" id="waste"><div class="pile-slot"></div></div>
+        <div style="flex:1;"></div>
+        <div class="pile foundation" data-suit="hearts"><div class="pile-slot"><div class="card-rank">♥</div></div></div>
+        <div class="pile foundation" data-suit="diamonds"><div class="pile-slot"><div class="card-rank">♦</div></div></div>
+        <div class="pile foundation" data-suit="clubs"><div class="pile-slot"><div class="card-rank">♣</div></div></div>
+        <div class="pile foundation" data-suit="spades"><div class="pile-slot"><div class="card-rank">♠</div></div></div>
+      </div>
+      <div class="row" id="tableau" style="align-items:flex-start;"></div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Solitaire</h1>
+      <ul class="how-to-list">
+        <li>Tap a card, then tap where you want to move it.</li>
+        <li>Build tableau columns down in alternating colors.</li>
+        <li>Build foundations up by suit, Ace to King, to win.</li>
+        <li>Tap the stock to draw; an empty stock recycles the waste pile.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Deal</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

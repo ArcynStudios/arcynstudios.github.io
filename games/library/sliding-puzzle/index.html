@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Sliding Puzzle</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:14px; padding:16px; height:100%; justify-content:center; }
+  .board { display:grid; gap:6px; width:min(88vw,380px); aspect-ratio:1; background:rgba(255,255,255,0.05); padding:8px; border-radius:14px; border:1px solid var(--g-border); }
+  .tile { display:flex; align-items:center; justify-content:center; font-weight:800; border-radius:8px; background:linear-gradient(135deg,#7c5cff,#22d3ee); cursor:pointer; transition:transform 120ms ease; user-select:none; }
+  .tile:active { transform:scale(0.94); }
+  .tile.blank { background:transparent; cursor:default; }
+</style>
+</head>
+<body>
+  <div class="game-stage">
+    <div class="hud">
+      <span class="hud__pill">⏱ <span id="time">0:00</span></span>
+      <span class="hud__pill">🔀 <span id="moves">0</span></span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="board" id="board" role="grid" aria-label="Sliding puzzle grid"></div>
+      <div class="option-row" id="diff-row">
+        <button class="option-btn" data-size="3">Easy · 3×3</button>
+        <button class="option-btn is-active" data-size="4">Medium · 4×4</button>
+        <button class="option-btn" data-size="5">Hard · 5×5</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Sliding Puzzle</h1>
+      <ul class="how-to-list">
+        <li>Tap a tile next to the blank space to slide it.</li>
+        <li>Arrange all tiles into numeric order.</li>
+        <li>Pick a grid size — bigger is harder.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Shuffle & Start</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

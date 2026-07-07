@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Snake</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+  <div class="game-stage">
+    <canvas id="c" aria-label="Snake game canvas"></canvas>
+
+    <div class="hud">
+      <span class="hud__pill">🍎 <span id="score">0</span></span>
+      <span class="hud__pill">🏆 <span id="best">0</span></span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="pause-btn" aria-label="Pause">⏸</button>
+      </div>
+    </div>
+
+    <div class="touch-pad">
+      <div class="touch-pad__group">
+        <button class="touch-btn" id="btn-left" aria-label="Turn left">◀</button>
+        <button class="touch-btn" id="btn-right" aria-label="Turn right">▶</button>
+      </div>
+      <div class="touch-pad__group">
+        <button class="touch-btn" id="btn-up" aria-label="Turn up">▲</button>
+        <button class="touch-btn" id="btn-down" aria-label="Turn down">▼</button>
+      </div>
+    </div>
+
+    <div class="pause-layer" id="pause-layer" hidden>
+      <button class="g-btn" id="resume-btn">Resume</button>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Snake</h1>
+      <ul class="how-to-list">
+        <li>Arrow keys / WASD, swipe, or the on-screen pad to steer.</li>
+        <li>Eat the food to grow — don't hit the walls or yourself.</li>
+        <li>Pick a speed to set your difficulty.</li>
+      </ul>
+      <div class="option-row" id="speed-row">
+        <button class="option-btn" data-speed="slow">Slow</button>
+        <button class="option-btn is-active" data-speed="normal">Normal</button>
+        <button class="option-btn" data-speed="fast">Fast</button>
+      </div>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>

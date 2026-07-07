@@ -789,6 +789,698 @@
       "playable": false,
       "difficulty": "Medium",
       "estPlayTime": "8-15 min"
+    },
+    {
+      "id": "tic-tac-toe",
+      "name": "Tic Tac Toe",
+      "category": "Board",
+      "rating": 4.4,
+      "plays": "4.5K",
+      "playsCount": 4537,
+      "likes": 817,
+      "reports": 0,
+      "thumbnail": "assets/images/games/tic-tac-toe.svg",
+      "featured": false,
+      "trending": true,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#7c5cff",
+      "releaseDate": "2026-07-07",
+      "description": "The timeless three-in-a-row duel. Face a smart AI at two difficulty levels or pass the device for local 2-player play.",
+      "tags": [
+        "board",
+        "strategy",
+        "classic",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Place your mark"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "2-5 min",
+      "playable": true,
+      "playUrl": "library/tic-tac-toe/index.html"
+    },
+    {
+      "id": "connect-four",
+      "name": "Connect Four",
+      "category": "Board",
+      "rating": 4.5,
+      "plays": "1.6K",
+      "playsCount": 1571,
+      "likes": 283,
+      "reports": 0,
+      "thumbnail": "assets/images/games/connect-four.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#22d3ee",
+      "releaseDate": "2026-07-06",
+      "description": "Drop discs, think ahead, and connect four before your opponent does. Minimax-powered AI or local 2-player.",
+      "tags": [
+        "board",
+        "strategy",
+        "classic",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Drop disc in column"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "3-6 min",
+      "playable": true,
+      "playUrl": "library/connect-four/index.html"
+    },
+    {
+      "id": "minesweeper",
+      "name": "Minesweeper",
+      "category": "Puzzle",
+      "rating": 4.6,
+      "plays": "1.9K",
+      "playsCount": 1871,
+      "likes": 337,
+      "reports": 0,
+      "thumbnail": "assets/images/games/minesweeper.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ff5c8a",
+      "releaseDate": "2026-07-07",
+      "description": "Clear the field without detonating a mine. Flag suspected cells, read the numbers, and sweep with confidence.",
+      "tags": [
+        "puzzle",
+        "logic",
+        "classic"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Reveal cell"
+        },
+        {
+          "key": "Long-press",
+          "action": "Flag cell"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "3-10 min",
+      "playable": true,
+      "playUrl": "library/minesweeper/index.html"
+    },
+    {
+      "id": "sudoku",
+      "name": "Sudoku",
+      "category": "Puzzle",
+      "rating": 4.7,
+      "plays": "4.2K",
+      "playsCount": 4221,
+      "likes": 760,
+      "reports": 0,
+      "thumbnail": "assets/images/games/sudoku.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ffb444",
+      "releaseDate": "2026-07-07",
+      "description": "Every puzzle is freshly generated with a guaranteed unique solution. Fill the grid, avoid three mistakes, beat your best time.",
+      "tags": [
+        "puzzle",
+        "logic",
+        "numbers",
+        "classic"
+      ],
+      "controls": [
+        {
+          "key": "1-9",
+          "action": "Enter number"
+        },
+        {
+          "key": "Arrows",
+          "action": "Move selection"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-15 min",
+      "playable": true,
+      "playUrl": "library/sudoku/index.html"
+    },
+    {
+      "id": "2048",
+      "name": "2048",
+      "category": "Puzzle",
+      "rating": 4.8,
+      "plays": "1.6K",
+      "playsCount": 1566,
+      "likes": 282,
+      "reports": 0,
+      "thumbnail": "assets/images/games/2048.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#35e0a1",
+      "releaseDate": "2026-07-06",
+      "description": "Swipe to slide and merge tiles toward the elusive 2048. Simple to learn, brutally hard to put down.",
+      "tags": [
+        "puzzle",
+        "numbers",
+        "casual"
+      ],
+      "controls": [
+        {
+          "key": "Arrows / WASD",
+          "action": "Slide tiles"
+        },
+        {
+          "key": "Swipe",
+          "action": "Slide tiles (touch)"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-10 min",
+      "playable": true,
+      "playUrl": "library/2048/index.html"
+    },
+    {
+      "id": "snake",
+      "name": "Snake",
+      "category": "Arcade",
+      "rating": 4.6,
+      "plays": "3.5K",
+      "playsCount": 3528,
+      "likes": 635,
+      "reports": 0,
+      "thumbnail": "assets/images/games/snake.svg",
+      "featured": false,
+      "trending": true,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#7c5cff",
+      "releaseDate": "2026-07-05",
+      "description": "The retro classic, reborn with neon trails. Grow your snake, dodge your own tail, and chase a new high score.",
+      "tags": [
+        "arcade",
+        "classic",
+        "retro"
+      ],
+      "controls": [
+        {
+          "key": "Arrows / WASD",
+          "action": "Steer"
+        },
+        {
+          "key": "Swipe",
+          "action": "Steer (touch)"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "2-5 min",
+      "playable": true,
+      "playUrl": "library/snake/index.html"
+    },
+    {
+      "id": "bubble-shooter",
+      "name": "Bubble Shooter",
+      "category": "Arcade",
+      "rating": 4.4,
+      "plays": "1.4K",
+      "playsCount": 1413,
+      "likes": 254,
+      "reports": 0,
+      "thumbnail": "assets/images/games/bubble-shooter.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#22d3ee",
+      "releaseDate": "2026-07-04",
+      "description": "Aim, bounce, and pop. Match three or more bubbles to clear the board before it reaches the line.",
+      "tags": [
+        "arcade",
+        "casual",
+        "match"
+      ],
+      "controls": [
+        {
+          "key": "Mouse / touch",
+          "action": "Aim"
+        },
+        {
+          "key": "Click / tap",
+          "action": "Shoot"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "3-8 min",
+      "playable": true,
+      "playUrl": "library/bubble-shooter/index.html"
+    },
+    {
+      "id": "color-sort",
+      "name": "Color Sort Puzzle",
+      "category": "Puzzle",
+      "rating": 4.5,
+      "plays": "4.3K",
+      "playsCount": 4250,
+      "likes": 765,
+      "reports": 0,
+      "thumbnail": "assets/images/games/color-sort.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ff5c8a",
+      "releaseDate": "2026-07-03",
+      "description": "Pour and sort colored liquid between tubes until every color is untangled. Every puzzle is guaranteed solvable.",
+      "tags": [
+        "puzzle",
+        "casual",
+        "relaxing"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Select and pour tube"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "3-6 min",
+      "playable": true,
+      "playUrl": "library/color-sort/index.html"
+    },
+    {
+      "id": "sliding-puzzle",
+      "name": "Sliding Puzzle",
+      "category": "Puzzle",
+      "rating": 4.3,
+      "plays": "916",
+      "playsCount": 916,
+      "likes": 165,
+      "reports": 0,
+      "thumbnail": "assets/images/games/sliding-puzzle.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ffb444",
+      "releaseDate": "2026-07-03",
+      "description": "The classic 15-puzzle with selectable grid sizes. Slide tiles into numeric order against the clock.",
+      "tags": [
+        "puzzle",
+        "logic",
+        "classic"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Slide adjacent tile"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "3-8 min",
+      "playable": true,
+      "playUrl": "library/sliding-puzzle/index.html"
+    },
+    {
+      "id": "memory-match",
+      "name": "Memory Match",
+      "category": "Puzzle",
+      "rating": 4.5,
+      "plays": "4.1K",
+      "playsCount": 4084,
+      "likes": 735,
+      "reports": 0,
+      "thumbnail": "assets/images/games/memory-match.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#35e0a1",
+      "releaseDate": "2026-07-02",
+      "description": "Flip cards, remember positions, find every pair. Three grid sizes for three levels of challenge.",
+      "tags": [
+        "puzzle",
+        "memory",
+        "casual"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Flip card"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "2-5 min",
+      "playable": true,
+      "playUrl": "library/memory-match/index.html"
+    },
+    {
+      "id": "dots-and-boxes",
+      "name": "Dots and Boxes",
+      "category": "Board",
+      "rating": 4.3,
+      "plays": "3.7K",
+      "playsCount": 3727,
+      "likes": 671,
+      "reports": 0,
+      "thumbnail": "assets/images/games/dots-and-boxes.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#7c5cff",
+      "releaseDate": "2026-07-02",
+      "description": "Draw lines, claim boxes, outsmart the AI’s safe-move strategy or battle a friend for the most territory.",
+      "tags": [
+        "board",
+        "strategy",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Draw a line"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-10 min",
+      "playable": true,
+      "playUrl": "library/dots-and-boxes/index.html"
+    },
+    {
+      "id": "gomoku",
+      "name": "Gomoku",
+      "category": "Board",
+      "rating": 4.4,
+      "plays": "1K",
+      "playsCount": 1004,
+      "likes": 181,
+      "reports": 0,
+      "thumbnail": "assets/images/games/gomoku.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#22d3ee",
+      "releaseDate": "2026-07-01",
+      "description": "Five in a row wins it all on a wide-open 15x15 board. A threat-scoring AI keeps every game sharp.",
+      "tags": [
+        "board",
+        "strategy",
+        "classic",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Place stone"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-12 min",
+      "playable": true,
+      "playUrl": "library/gomoku/index.html"
+    },
+    {
+      "id": "reversi",
+      "name": "Reversi",
+      "category": "Board",
+      "rating": 4.5,
+      "plays": "1.5K",
+      "playsCount": 1495,
+      "likes": 269,
+      "reports": 0,
+      "thumbnail": "assets/images/games/reversi.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ff5c8a",
+      "releaseDate": "2026-07-01",
+      "description": "Flip your opponent’s discs by trapping them between your own. Corners are everything.",
+      "tags": [
+        "board",
+        "strategy",
+        "classic",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Place disc"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-12 min",
+      "playable": true,
+      "playUrl": "library/reversi/index.html"
+    },
+    {
+      "id": "checkers",
+      "name": "Checkers",
+      "category": "Board",
+      "rating": 4.7,
+      "plays": "4K",
+      "playsCount": 3965,
+      "likes": 714,
+      "reports": 0,
+      "thumbnail": "assets/images/games/checkers.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#ffb444",
+      "releaseDate": "2026-06-30",
+      "description": "Full American draughts rules — mandatory captures, multi-jump chains, and king promotion.",
+      "tags": [
+        "board",
+        "strategy",
+        "classic",
+        "2-player"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Select and move piece"
+        }
+      ],
+      "difficulty": "Hard",
+      "estPlayTime": "8-15 min",
+      "playable": true,
+      "playUrl": "library/checkers/index.html"
+    },
+    {
+      "id": "solitaire",
+      "name": "Solitaire",
+      "category": "Board",
+      "rating": 4.8,
+      "plays": "2.7K",
+      "playsCount": 2709,
+      "likes": 488,
+      "reports": 0,
+      "thumbnail": "assets/images/games/solitaire.svg",
+      "featured": true,
+      "trending": false,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#35e0a1",
+      "releaseDate": "2026-06-30",
+      "description": "Classic Klondike solitaire with full supermove support. Tap to select, tap to place — no dragging required.",
+      "tags": [
+        "card",
+        "solitaire",
+        "classic",
+        "singleplayer"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Select / place cards"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "8-15 min",
+      "playable": true,
+      "playUrl": "library/solitaire/index.html"
+    },
+    {
+      "id": "mahjong-solitaire",
+      "name": "Mahjong Solitaire",
+      "category": "Board",
+      "rating": 4.6,
+      "plays": "4.7K",
+      "playsCount": 4744,
+      "likes": 854,
+      "reports": 0,
+      "thumbnail": "assets/images/games/mahjong-solitaire.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#7c5cff",
+      "releaseDate": "2026-06-29",
+      "description": "Clear a four-tier pyramid of tiles by matching open pairs. Stuck? Shuffle what’s left and keep going.",
+      "tags": [
+        "tile",
+        "matching",
+        "classic",
+        "relaxing"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Select matching tiles"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "8-15 min",
+      "playable": true,
+      "playUrl": "library/mahjong-solitaire/index.html"
+    },
+    {
+      "id": "battleship",
+      "name": "Battleship",
+      "category": "Board",
+      "rating": 4.5,
+      "plays": "1.3K",
+      "playsCount": 1322,
+      "likes": 238,
+      "reports": 0,
+      "thumbnail": "assets/images/games/battleship.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#22d3ee",
+      "releaseDate": "2026-06-29",
+      "description": "Deploy your fleet in secret, then take turns firing blind at your opponent’s grid. Local 2-player, pass-and-play.",
+      "tags": [
+        "board",
+        "strategy",
+        "2-player",
+        "local-multiplayer"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Place ships / fire"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "8-15 min",
+      "playable": true,
+      "playUrl": "library/battleship/index.html"
+    },
+    {
+      "id": "ludo",
+      "name": "Ludo",
+      "category": "Board",
+      "rating": 4.4,
+      "plays": "1.2K",
+      "playsCount": 1167,
+      "likes": 210,
+      "reports": 0,
+      "thumbnail": "assets/images/games/ludo.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#ff5c8a",
+      "releaseDate": "2026-06-28",
+      "description": "Roll, race, and capture your way home. 2-4 players, one device, endless comebacks.",
+      "tags": [
+        "board",
+        "dice",
+        "classic",
+        "local-multiplayer"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Roll die / move token"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "10-20 min",
+      "playable": true,
+      "playUrl": "library/ludo/index.html"
+    },
+    {
+      "id": "snakes-and-ladders",
+      "name": "Snakes & Ladders",
+      "category": "Board",
+      "rating": 4.2,
+      "plays": "2.4K",
+      "playsCount": 2401,
+      "likes": 432,
+      "reports": 0,
+      "thumbnail": "assets/images/games/snakes-and-ladders.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#ffb444",
+      "releaseDate": "2026-06-28",
+      "description": "Pure luck, pure fun. Climb ladders, dodge snakes, and race to square 100 with up to four players.",
+      "tags": [
+        "board",
+        "dice",
+        "classic",
+        "local-multiplayer",
+        "kids"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Roll the die"
+        }
+      ],
+      "difficulty": "Easy",
+      "estPlayTime": "8-15 min",
+      "playable": true,
+      "playUrl": "library/snakes-and-ladders/index.html"
+    },
+    {
+      "id": "simon-memory",
+      "name": "Simon Memory",
+      "category": "Arcade",
+      "rating": 4.3,
+      "plays": "1.4K",
+      "playsCount": 1380,
+      "likes": 248,
+      "reports": 0,
+      "thumbnail": "assets/images/games/simon-memory.svg",
+      "featured": false,
+      "trending": false,
+      "new": true,
+      "editorsPick": false,
+      "accent": "#35e0a1",
+      "releaseDate": "2026-06-27",
+      "description": "Watch the pattern, repeat it back, and go one step further each round. Three speed settings.",
+      "tags": [
+        "arcade",
+        "memory",
+        "reflex"
+      ],
+      "controls": [
+        {
+          "key": "Tap",
+          "action": "Repeat the pattern"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "2-6 min",
+      "playable": true,
+      "playUrl": "library/simon-memory/index.html"
     }
   ]
 }

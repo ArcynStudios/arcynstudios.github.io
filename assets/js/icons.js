@@ -30,7 +30,8 @@ export const ICONS = {
   chevronRight: '<path d="m9 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>',
   heart: '<path d="M12 21s-7.5-4.6-10-9.2C.6 8.4 2.2 5 5.6 5 8 5 9.6 6.4 12 9c2.4-2.6 4-4 6.4-4 3.4 0 5 3.4 3.6 6.8C19.5 16.4 12 21 12 21Z" stroke-linejoin="round"/>',
   share: '<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.3 10.7 7.4-4.2M8.3 13.3l7.4 4.2" stroke-linecap="round"/>',
-  fullscreen: '<path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3" stroke-linecap="round" stroke-linejoin="round"/>'
+  fullscreen: '<path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3" stroke-linecap="round" stroke-linejoin="round"/>',
+  board: '<rect x="3" y="3" width="18" height="18" rx="2" stroke-linejoin="round"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" stroke-linecap="round"/>'
 };
 
 export function iconMarkup(name, extraAttrs = '') {

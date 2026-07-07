@@ -123,3 +123,113 @@ export function bestScore(gameId, score) {
   }
   return { best: prev, isNewBest: false };
 }
+
+/** Best-time variant (lower is better) — used by timed puzzles. */
+export function bestTime(gameId, seconds) {
+  const key = `arcyn-besttime-${gameId}`;
+  const prev = Number(localStorage.getItem(key) || 0);
+  if (!prev || seconds < prev) {
+    try {
+      localStorage.setItem(key, String(seconds));
+    } catch {
+      /* localStorage unavailable */
+    }
+    return { best: seconds, isNewBest: true };
+  }
+  return { best: prev, isNewBest: false };
+}
+
+/** Win/loss/draw tallies, namespaced per game — for turn-based and versus games. */
+export function recordResult(gameId, result) {
+  const key = `arcyn-stats-${gameId}`;
+  let stats = { wins: 0, losses: 0, draws: 0 };
+  try {
+    stats = { ...stats, ...JSON.parse(localStorage.getItem(key) || '{}') };
+  } catch {
+    /* corrupt or unavailable — start fresh */
+  }
+  const field = result === 'win' ? 'wins' : result === 'loss' ? 'losses' : 'draws';
+  stats[field] += 1;
+  try {
+    localStorage.setItem(key, JSON.stringify(stats));
+  } catch {
+    /* localStorage unavailable — stats just won't persist */
+  }
+  return stats;
+}
+
+export function getStats(gameId) {
+  try {
+    return { wins: 0, losses: 0, draws: 0, ...JSON.parse(localStorage.getItem(`arcyn-stats-${gameId}`) || '{}') };
+  } catch {
+    return { wins: 0, losses: 0, draws: 0 };
+  }
+}
+
+/**
+ * Minimal synthesized sound kit — WebAudio oscillator "beeps" rather than
+ * audio files, so every game gets real (if simple) SFX with zero asset
+ * weight and zero licensing surface. Muted state persists across games.
+ */
+const MUTE_KEY = 'arcyn-sfx-muted';
+let audioCtx = null;
+let muted = localStorage.getItem(MUTE_KEY) === 'true';
+
+function getAudioCtx() {
+  if (!audioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audioCtx = new Ctx();
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function tone(freq, duration = 0.12, type = 'sine', gain = 0.15, delay = 0) {
+  if (muted) return;
+  const ctx = getAudioCtx();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const g = ctx.createGain();
+  osc.type = type;
+  osc.frequency.value = freq;
+  osc.connect(g).connect(ctx.destination);
+  const t = ctx.currentTime + delay;
+  g.gain.setValueAtTime(gain, t);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + duration);
+  osc.start(t);
+  osc.stop(t + duration + 0.02);
+}
+
+export const sfx = {
+  click: () => tone(440, 0.06, 'triangle', 0.12),
+  move: () => tone(330, 0.08, 'sine', 0.12),
+  place: () => tone(520, 0.07, 'square', 0.08),
+  pop: () => tone(660, 0.09, 'sine', 0.15),
+  merge: () => tone(880, 0.12, 'triangle', 0.15),
+  invalid: () => tone(160, 0.14, 'sawtooth', 0.1),
+  win: () => {
+    tone(523, 0.12, 'triangle', 0.15, 0);
+    tone(659, 0.12, 'triangle', 0.15, 0.12);
+    tone(784, 0.2, 'triangle', 0.18, 0.24);
+  },
+  lose: () => {
+    tone(300, 0.2, 'sawtooth', 0.12, 0);
+    tone(200, 0.32, 'sawtooth', 0.12, 0.15);
+  },
+  tick: () => tone(880, 0.03, 'square', 0.05)
+};
+
+export function isMuted() {
+  return muted;
+}
+
+export function toggleMute() {
+  muted = !muted;
+  try {
+    localStorage.setItem(MUTE_KEY, String(muted));
+  } catch {
+    /* localStorage unavailable */
+  }
+  return muted;
+}

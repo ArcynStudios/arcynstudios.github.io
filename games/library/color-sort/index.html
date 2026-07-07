@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Color Sort Puzzle</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+<style>
+  html, body { touch-action: pan-y; }
+  .wrap { display:flex; flex-direction:column; align-items:center; gap:16px; padding:16px; height:100%; justify-content:center; }
+  .tubes { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; max-width:94vw; }
+  .tube { width:44px; height:160px; border:3px solid var(--g-border); border-top:none; border-radius:0 0 16px 16px; display:flex; flex-direction:column-reverse; padding:3px; cursor:pointer; background:rgba(255,255,255,0.03); transition:transform 150ms ease, border-color 150ms ease; }
+  .tube.selected { transform:translateY(-10px); border-color:var(--g-cyan); }
+  .segment { flex:1; border-radius:3px; margin-top:2px; }
+  .segment:first-child { margin-top:0; }
+</style>
+</head>
+<body>
+  <div class="game-stage">
+    <div class="hud">
+      <span class="hud__pill">🔄 <span id="moves">0</span></span>
+      <div class="hud__controls">
+        <button class="icon-btn" id="mute-btn" aria-label="Toggle sound">🔊</button>
+        <button class="icon-btn" id="undo-btn" aria-label="Undo">⤺</button>
+        <button class="icon-btn" id="restart-btn" aria-label="Restart">↺</button>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="tubes" id="tubes"></div>
+      <div class="option-row" id="diff-row">
+        <button class="option-btn" data-diff="easy">Easy · 4 colors</button>
+        <button class="option-btn is-active" data-diff="medium">Medium · 6 colors</button>
+        <button class="option-btn" data-diff="hard">Hard · 8 colors</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <h1>Color Sort Puzzle</h1>
+      <ul class="how-to-list">
+        <li>Tap a tube to pick up its top color, tap another to pour.</li>
+        <li>You can only pour onto an empty tube or matching color.</li>
+        <li>Sort every color into its own tube to win.</li>
+      </ul>
+      <button class="g-btn" id="start-btn">Play</button>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
