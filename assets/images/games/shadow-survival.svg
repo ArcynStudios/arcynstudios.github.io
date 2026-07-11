@@ -1,0 +1,181 @@
+<svg viewBox="0 0 300 169" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ssBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505"/>
+      <stop offset="50%" style="stop-color:#0a0205"/>
+      <stop offset="100%" style="stop-color:#150008"/>
+    </linearGradient>
+    <linearGradient id="ssRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3366"/>
+      <stop offset="50%" style="stop-color:#ff5c8a"/>
+      <stop offset="100%" style="stop-color:#ffaa00"/>
+    </linearGradient>
+    <radialGradient id="ssFire" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffff00"/>
+      <stop offset="50%" style="stop-color:#ffaa00"/>
+      <stop offset="100%" style="stop-color:#ff3366"/>
+    </radialGradient>
+    <filter id="glow4" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow5" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="300" height="169" fill="url(#ssBg)"/>
+  <!-- Arena boundary -->
+  <circle cx="150" cy="84" r="70" fill="none" stroke="url(#ssRed)" stroke-width="3" filter="url(#glow4)" opacity="0.5">
+    <animate attributeName="r" values="70;75;70" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Inner glow rings -->
+  <circle cx="150" cy="84" r="50" fill="none" stroke="#ff3366" stroke-width="1" opacity="0.2" filter="url(#glow4)"/>
+  <circle cx="150" cy="84" r="30" fill="none" stroke="#ff5c8a" stroke-width="1" opacity="0.15" filter="url(#glow4)"/>
+  <!-- Fog particles -->
+  <g filter="url(#glow4)" opacity="0.1">
+    <circle cx="40" cy="30" r="25" fill="#ff3366">
+      <animate attributeName="opacity" values="0.1;0.05;0.1" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="140" r="30" fill="#ff5c8a">
+      <animate attributeName="opacity" values="0.08;0.03;0.08" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="30" cy="120" r="20" fill="#7c5cff">
+      <animate attributeName="opacity" values="0.05;0.1;0.05" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="270" cy="20" r="25" fill="#ffaa00">
+      <animate attributeName="opacity" values="0.06;0.12;0.06" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Enemies -->
+  <g filter="url(#glow5)">
+    <!-- Shade -->
+    <ellipse cx="80" cy="50" rx="12" ry="18" fill="#ff3366">
+      <animate attributeName="cy" values="50;45;50" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="80" cy="40" r="4" fill="#fff" filter="url(#glow4)"/>
+    <!-- Wraith -->
+    <ellipse cx="220" cy="60" rx="10" ry="16" fill="#aa44ff">
+      <animate attributeName="cx" values="220;225;220" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="220" cy="50" r="3" fill="#fff" filter="url(#glow4)"/>
+    <!-- Reaper -->
+    <ellipse cx="150" cy="120" rx="16" ry="22" fill="#ffaa00">
+      <animate attributeName="cy" values="120;115;120" dur="2.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="150" cy="110" r="5" fill="#fff" filter="url(#glow4)"/>
+    <!-- Void Walker -->
+    <ellipse cx="50" cy="100" rx="10" ry="14" fill="#00ffff">
+      <animate attributeName="cx" values="50;70;50" dur="1s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="50" cy="92" r="3" fill="#fff" filter="url(#glow4)"/>
+    <!-- Soul Eater -->
+    <ellipse cx="250" cy="130" rx="18" ry="24" fill="#ff00ff">
+      <animate attributeName="cy" values="130;125;130" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="250" cy="120" r="5" fill="#fff" filter="url(#glow4)"/>
+  </g>
+  <!-- Boss - Shadow Lord -->
+  <g filter="url(#glow5)">
+    <circle cx="150" cy="30" r="22" fill="none" stroke="#ff3366" stroke-width="3">
+      <animate attributeName="r" values="22;28;22" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <ellipse cx="150" cy="30" rx="28" ry="28" fill="#ff3366" opacity="0.15">
+      <animate attributeName="rx" values="28;35;28" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="28;35;28" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="150" cy="30" r="6" fill="#fff" filter="url(#glow4)"/>
+    <text x="150" y="35" text-anchor="middle" font-size="8" fill="#ff3366" font-weight="bold">BOSS</text>
+    <!-- Health bar -->
+    <rect x="120" y="12" width="60" height="4" rx="2" fill="#333" stroke="#ff3366" stroke-width="1"/>
+    <rect x="120" y="12" width="48" height="4" rx="2" fill="#ff3366">
+      <animate attributeName="width" values="48;60;48" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <!-- Player -->
+  <g filter="url(#glow5)">
+    <circle cx="150" cy="84" r="16" fill="#fff" opacity="0.9">
+      <animate attributeName="r" values="16;18;16" dur="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="84" r="10" fill="url(#ssFire)">
+      <animate attributeName="r" values="10;12;10" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="84" r="6" fill="#fff" filter="url(#glow4)"/>
+    <!-- Dash trail -->
+    <ellipse cx="130" cy="84" rx="20" ry="12" fill="none" stroke="#ffaa00" stroke-width="2" opacity="0.5">
+      <animate attributeName="cx" values="130;100;130" dur="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="0.8s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Shield -->
+    <circle cx="150" cy="84" r="28" fill="none" stroke="#7c5cff" stroke-width="2" opacity="0.4">
+      <animate attributeName="r" values="28;32;28" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Souls -->
+  <g filter="url(#glow5)">
+    <circle cx="100" cy="70" r="5" fill="#ffff00">
+      <animate attributeName="cy" values="70;60;70" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="5;7;5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="90" r="5" fill="#ffff00">
+      <animate attributeName="cy" values="90;80;90" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="5;7;5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="120" r="4" fill="#ffff00">
+      <animate attributeName="cy" values="120;110;120" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="4;6;4" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="180" cy="40" r="4" fill="#ffff00">
+      <animate attributeName="cy" values="40;30;40" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="4;6;4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Power-ups -->
+  <g filter="url(#glow5)">
+    <polygon points="100,30 105,20 110,30 107,25 103,25" fill="#00ff88">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="200,30 205,20 210,30 207,25 203,25" fill="#ff3366">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="50,140 55,130 60,140 57,135 53,135" fill="#7c5cff">
+      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  <!-- Projectiles -->
+  <g filter="url(#glow5)">
+    <line x1="150" y1="84" x2="80" y2="50" stroke="#ffaa00" stroke-width="2">
+      <animate attributeName="x2" values="80;60;40;20" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="50;45;40;35" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="220" y1="60" x2="150" y2="84" stroke="#aa44ff" stroke-width="2">
+      <animate attributeName="x2" values="150;130;110;90" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="84;82;80;78" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <!-- Particles -->
+  <g filter="url(#glow5)">
+    <circle cx="170" cy="110" r="3" fill="#ff3366">
+      <animate attributeName="r" values="3;0" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="170;190;210" dur="0.5s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="110;105;100" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130" cy="60" r="2" fill="#ffaa00">
+      <animate attributeName="r" values="2;0" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="cx" values="130;110;90" dur="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="60;55;50" dur="0.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Title -->
+  <text x="150" y="158" text-anchor="middle" font-family="Sora, sans-serif" font-size="16" font-weight="800" fill="url(#ssRed)" filter="url(#glow4)">SHADOW SURVIVAL</text>
+</svg>

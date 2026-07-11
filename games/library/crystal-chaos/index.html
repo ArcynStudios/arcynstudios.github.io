@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Crystal Chaos</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<div class="game-container">
+<canvas id="c" aria-label="Crystal Chaos game canvas"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">◇</span> <span id="crystals">0</span></span>
+<span class="hud-pill"><span class="hud-icon">★</span> <span id="score">0</span></span>
+<span class="hud-pill"><span class="hud-icon">⚡</span> <span id="combo">1</span>x</span>
+</div>
+<div class="hud-center">
+<span class="hud-pill" id="moves">MOVES: <span id="moves-count">0</span></span>
+</div>
+<div class="hud-right">
+<span class="hud-pill" id="level-display">LEVEL 1</span>
+</div>
+</div>
+
+<div class="touch-controls" id="touch-controls" style="display:none">
+<div class="touch-row">
+<button class="touch-btn" id="btn-undo" aria-label="Undo">↶</button>
+<button class="touch-btn" id="btn-shuffle" aria-label="Shuffle">⇄</button>
+<button class="touch-btn" id="btn-hint" aria-label="Hint">?</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">CRYSTAL CHAOS</h1>
+<p class="game-subtitle">UNDERGROUND CRYSTAL CAVE</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">PLAY</button>
+<button class="menu-btn" id="btn-daily">DAILY PUZZLE</button>
+<button class="menu-btn" id="btn-continue" style="display:none">CONTINUE</button>
+</div>
+<div class="stats-panel" id="stats-panel">
+<div class="stat"><span class="stat-label">BEST SCORE</span><span class="stat-value" id="stat-best">0</span></div>
+<div class="stat"><span class="stat-label">BEST COMBO</span><span class="stat-value" id="stat-combo">0x</span></div>
+<div class="stat"><span class="stat-label">TOTAL CRYSTALS</span><span class="stat-value" id="stat-crystals">0</span></div>
+<div class="stat"><span class="stat-label">PUZZLES SOLVED</span><span class="stat-value" id="stat-solved">0</span></div>
+<div class="stat"><span class="stat-label">PERFECT CLEARS</span><span class="stat-value" id="stat-perfect">0</span></div>
+<div class="stat"><span class="stat-label">TIME</span><span class="stat-value" id="stat-time">0:00</span></div>
+</div>
+<div class="menu-buttons">
+<button class="menu-btn" id="btn-tutorial">TUTORIAL</button>
+<button class="menu-btn" id="btn-settings">SETTINGS</button>
+<button class="menu-btn" id="btn-credits">CREDITS</button>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="pause-overlay" style="display:none">
+<div class="overlay-content">
+<h1>PAUSED</h1>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-resume">RESUME</button>
+<button class="menu-btn" id="btn-restart">RESTART LEVEL</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="level-complete-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="victory-title">LEVEL CLEAR</h1>
+<div class="stage-score" id="level-score">Score: 0</div>
+<div class="stage-stats" id="level-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-next-level">NEXT LEVEL</button>
+<button class="menu-btn" id="btn-menu2">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="gameover-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="gameover-title">NO MOVES LEFT</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-retry">RETRY</button>
+<button class="menu-btn" id="btn-menu3">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>Click / Tap</kbd><span>Select Crystal</span></div>
+<div class="control-item"><kbd>Drag</kbd><span>Swap Adjacent</span></div>
+<div class="control-item"><kbd>Match 3+</kbd><span>Create Chain Reaction</span></div>
+<div class="control-item"><kbd>Special Gems</kbd><span>Explode Rows/Columns</span></div>
+</div>
+<p class="tutorial-tip">Create massive chain reactions for huge combos! Boss crystals require multiple hits.</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+
+<div class="settings-overlay" id="settings-overlay" style="display:none">
+<div class="settings-content">
+<h2>SETTINGS</h2>
+<div class="setting-row">
+<span>Music</span>
+<label class="toggle"><input type="checkbox" id="set-music" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Sound Effects</span>
+<label class="toggle"><input type="checkbox" id="set-sfx" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Screen Shake</span>
+<label class="toggle"><input type="checkbox" id="set-shake" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Particles</span>
+<select id="set-particles"><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+</div>
+<div class="setting-row">
+<span>Difficulty</span>
+<select id="set-difficulty"><option value="normal">Normal</option><option value="hard">Hard</option><option value="expert">Expert</option></select>
+</div>
+<div class="setting-row">
+<span>Fullscreen</span>
+<label class="toggle"><input type="checkbox" id="set-fullscreen"><span class="toggle-slider"></span></label>
+</div>
+<button class="menu-btn" id="btn-settings-close">DONE</button>
+</div>
+</div>
+
+<div class="credits-overlay" id="credits-overlay" style="display:none">
+<div class="credits-content">
+<h2>CREDITS</h2>
+<p>CRYSTAL CHAOS</p>
+<p class="credit-role">Original Game by Arcyn Studios</p>
+<div class="credits-list">
+<p>Game Design & Programming</p>
+<p>Puzzle Algorithm Design</p>
+<p>Crystal Rendering & Shaders</p>
+<p>Audio Design</p>
+<p>UI/UX Design</p>
+</div>
+<p class="credit-note">Built with vanilla JavaScript & Canvas 2D</p>
+<p class="credit-note">No frameworks, no libraries, pure code</p>
+<button class="menu-btn" id="btn-credits-close">BACK</button>
+</div>
+</div>
+
+<div class="daily-overlay" id="daily-overlay" style="display:none">
+<div class="daily-content">
+<h2>DAILY PUZZLE</h2>
+<p id="daily-date">Today's Challenge</p>
+<div class="daily-mods" id="daily-mods"></div>
+<div class="daily-reward">Reward: <span id="daily-reward">500</span> Crystals</div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-daily-play">PLAY DAILY</button>
+<button class="menu-btn" id="btn-daily-close">BACK</button>
+</div>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
