@@ -27,12 +27,12 @@
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="manifest" href="manifest.json" />
 
-  <!-- Preload critical fonts -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="data/games.json" as="fetch" type="application/json" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/main.css" />
 
   <script type="application/ld+json">
   {
@@ -380,7 +380,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h3>Explore</h3>
           <ul>
             <li><a href="#trending">Trending</a></li>
             <li><a href="#categories">Categories</a></li>
@@ -389,32 +389,32 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Company</h4>
+          <h3>Company</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press Kit</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Careers</a></li>
+            <li><a href="contact.html">Press Kit</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h3>Legal</h3>
           <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-            <li><a href="#">DMCA</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="about.html">DMCA</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; <span data-year></span> Arcyn Studios. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Sitemap</a>
+        <div class="footer-bottom">
+          <p>&copy; <span data-year></span> Arcyn Studios. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="sitemap.xml">Sitemap</a>
+          </div>
         </div>
-      </div>
     </div>
   </footer>
 
@@ -422,6 +422,23 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
+  <!-- Install banner (hidden by default, shown by install-prompt.js) -->
+  <div data-install-banner hidden aria-hidden="true" style="position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:600;background:var(--bg-elevated);border:1px solid var(--border-glass-strong);border-radius:var(--radius-lg);padding:var(--space-sm) var(--space-md);display:flex;align-items:center;gap:var(--space-sm);box-shadow:var(--shadow-lg);max-width:min(92vw,420px);">
+    <span style="font-size:var(--fs-sm);font-weight:600;color:var(--text-primary);flex:1;">Install Arcyn Studios for a better experience</span>
+    <button class="btn btn-primary btn-sm" data-install-btn>Install</button>
+    <button class="btn-icon" data-install-close aria-label="Dismiss install prompt" style="width:32px;height:32px;flex-shrink:0;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+    </button>
+  </aside>
+
   <script type="module" src="assets/js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/assets/js/service-worker.js', { scope: '/' }).catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
+

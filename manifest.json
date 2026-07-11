@@ -1,19 +1,68 @@
 {
-  "name": "Arcyn Studios",
+  "name": "Arcyn Studios — Play Free Online Games",
   "short_name": "Arcyn",
-  "description": "A premium gaming ecosystem — instant-play games from Arcyn Studios. No downloads, no installs.",
-  "start_url": "/index.html",
+  "description": "A premium gaming ecosystem — 1,200+ instant-play browser games. No downloads, no installs, just worlds worth playing.",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0a0a14",
   "theme_color": "#0a0a14",
   "orientation": "any",
+  "lang": "en",
+  "categories": ["games", "entertainment"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "assets/icons/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/social-share.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Play a Game",
+      "short_name": "Play",
+      "url": "/games/game.html?id=tic-tac-toe",
+      "description": "Jump into a random game"
+    },
+    {
+      "name": "Search Games",
+      "short_name": "Search",
+      "url": "/#all-games",
+      "description": "Browse all games"
+    },
+    {
+      "name": "Categories",
+      "short_name": "Categories",
+      "url": "/categories/category.html?name=Action",
+      "description": "Browse by category"
     }
   ]
 }

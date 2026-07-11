@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /assets/js/*.map
+Crawl-delay: 0
 
+# Block debug and test files
+Disallow: /test.html
+Disallow: /tests/
+Disallow: /*.test.js
+Disallow: /node_modules/
+
+# Allow all game pages
+Allow: /games/
+Allow: /categories/
+
+# Sitemap
 Sitemap: https://www.arcynstudios.com/sitemap.xml

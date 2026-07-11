@@ -12,16 +12,11 @@ import { getSimilarGames } from '../assets/js/collections.js';
 import { isFavorite, toggleFavorite } from '../assets/js/favorites.js';
 import { toast } from '../assets/js/toast.js';
 import { iconMarkup } from '../assets/js/icons.js';
+import { initCommon, setMeta } from '../assets/js/bootstrap.js';
 
 const REPORTED_KEY = 'arcyn-reported-games';
 
-initTheme();
-initNav();
-initFavoriteButtons();
-initAutoReveal();
-initYear();
-requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('is-loading')));
-bootstrap();
+initCommon(bootstrap);
 
 async function bootstrap() {
   try {
@@ -30,7 +25,8 @@ async function bootstrap() {
     initSearch(games, '../');
 
     const id = new URLSearchParams(window.location.search).get('id');
-    const game = games.find((g) => g.id === id) || games[0];
+    if (!id) return renderNotFound();
+    const game = games.find((g) => g.id === id);
     if (!game) return renderNotFound();
 
     hydrate(game);
@@ -47,6 +43,9 @@ function hydrate(game) {
   setMeta('description', `Play ${game.name} free on Arcyn Studios. ${game.category} game, rated ${game.rating}/5 with ${game.plays} plays.`);
   setMeta('og:title', `${game.name} — Arcyn Studios`, true);
   setMeta('og:description', `Play ${game.name} instantly in your browser. No downloads required.`, true);
+  setMeta('og:url', `https://www.arcynstudios.com/games/game.html?id=${game.id}`, true);
+  setMeta('twitter:title', `${game.name} — Arcyn Studios`);
+  setMeta('twitter:description', `Play ${game.name} instantly in your browser. No downloads required.`);
 
   const canonical = document.querySelector('[data-page-canonical]');
   if (canonical) canonical.href = `https://www.arcynstudios.com/games/game.html?id=${game.id}`;
@@ -126,10 +125,24 @@ function hydrate(game) {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: game.rating,
-        bestRating: '5'
+        bestRating: '5',
+        ratingCount: game.playsCount || game.likes || 0
       },
       applicationCategory: 'Game',
       operatingSystem: 'Any (Web Browser)'
+    });
+  }
+
+  const breadcrumbJsonld = document.querySelector('[data-jsonld-breadcrumb]');
+  if (breadcrumbJsonld) {
+    breadcrumbJsonld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.arcynstudios.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Games', item: 'https://www.arcynstudios.com/games/game.html' },
+        { '@type': 'ListItem', position: 3, name: game.name, item: `https://www.arcynstudios.com/games/game.html?id=${game.id}` }
+      ]
     });
   }
 }
@@ -162,6 +175,7 @@ function wireActions(game) {
     iframe.title = `${game.name} — playable game`;
     iframe.allow = 'fullscreen; autoplay';
     iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-fullscreen');
     shell.innerHTML = '';
     shell.appendChild(iframe);
   });
@@ -291,7 +305,8 @@ function renderError() {
   }
 }
 
-function initYear() {
-  const el = document.querySelector('[data-year]');
-  if (el) el.textContent = new Date().getFullYear();
+function setMeta(name, content, isProperty = false) {
+  const attr = isProperty ? 'property' : 'name';
+  const el = document.querySelector(`meta[${attr}="${name}"]`);
+  if (el) el.setAttribute('content', content);
 }

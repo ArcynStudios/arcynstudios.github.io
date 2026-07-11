@@ -10,26 +10,20 @@ import { initSearch } from '../assets/js/search.js';
 import { renderCards, initFavoriteButtons, initAutoReveal } from '../assets/js/game-card.js';
 import { CATEGORIES, getCategory } from '../assets/js/categories.js';
 import { iconMarkup } from '../assets/js/icons.js';
-
-initTheme();
-initNav();
-initFavoriteButtons();
-initAutoReveal();
-initYear();
-requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('is-loading')));
+import { initCommon, setMeta } from '../assets/js/bootstrap.js';
 
 const PAGE_SIZE = 12;
-
 let allGames = [];
 let currentCategory = '';
 let currentSort = 'popular';
 let visibleCount = PAGE_SIZE;
 
-bootstrap();
+initCommon(bootstrap);
 
 async function bootstrap() {
   try {
     const res = await fetch('../data/games.json');
+    if (!res.ok) throw new Error(`Failed to load games.json: ${res.status}`);
     const { games } = await res.json();
     allGames = games;
     initSearch(games, '../');
@@ -104,12 +98,18 @@ function renderBanner() {
   setMeta('description', `Play free ${meta.name.toLowerCase()} games instantly on Arcyn Studios. ${meta.description}`);
   setMeta('og:title', `${meta.name} Games — Arcyn Studios`, true);
   setMeta('og:description', meta.description, true);
+  setMeta('og:url', `https://www.arcynstudios.com/categories/category.html?name=${encodeURIComponent(meta.name)}`, true);
+  setMeta('twitter:title', `${meta.name} Games — Arcyn Studios`);
+  setMeta('twitter:description', `Play free ${meta.name.toLowerCase()} games instantly on Arcyn Studios. ${meta.description}`);
 
   const canonical = document.querySelector('[data-page-canonical]');
   if (canonical) canonical.href = `https://www.arcynstudios.com/categories/category.html?name=${encodeURIComponent(meta.name)}`;
 
   const breadcrumb = document.querySelector('[data-breadcrumb-name]');
   if (breadcrumb) breadcrumb.textContent = `${meta.name} Games`;
+
+  const title = document.querySelector('[data-category-title]');
+  if (title) title.textContent = `${meta.name} Games`;
 
   const jsonld = document.querySelector('[data-jsonld-category]');
   if (jsonld) {
@@ -118,6 +118,19 @@ function renderBanner() {
       '@type': 'CollectionPage',
       name: `${meta.name} Games`,
       description: meta.description
+    });
+  }
+
+  const breadcrumbJsonld = document.querySelector('[data-jsonld-breadcrumb]');
+  if (breadcrumbJsonld) {
+    breadcrumbJsonld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.arcynstudios.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Categories', item: 'https://www.arcynstudios.com/categories/category.html' },
+        { '@type': 'ListItem', position: 3, name: `${meta.name} Games`, item: `https://www.arcynstudios.com/categories/category.html?name=${encodeURIComponent(meta.name)}` }
+      ]
     });
   }
 }
@@ -208,9 +221,4 @@ function setMeta(name, content, isProperty = false) {
   const attr = isProperty ? 'property' : 'name';
   const el = document.querySelector(`meta[${attr}="${name}"]`);
   if (el) el.setAttribute('content', content);
-}
-
-function initYear() {
-  const el = document.querySelector('[data-year]');
-  if (el) el.textContent = new Date().getFullYear();
 }

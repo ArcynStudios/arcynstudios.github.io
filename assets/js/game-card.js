@@ -27,12 +27,14 @@ export function renderBadges(game) {
  */
 export function gameCardTemplate(game, basePath = '') {
   const favorited = isFavorite(game.id);
+  const isFirst = renderCards._count === 0;
+  renderCards._count = (renderCards._count || 0) + 1;
   return `
     <article class="game-card reveal" data-game-id="${game.id}" data-category="${game.category}" style="--accent: ${game.accent};">
       <a class="game-card__media" href="${basePath}games/game.html?id=${encodeURIComponent(game.id)}" aria-label="Play ${game.name} — ${game.category}, rated ${game.rating.toFixed(1)} out of 5">
         <div class="game-card__badges">${renderBadges(game)}</div>
         <div class="game-card__thumb">
-          <img src="${basePath}${game.thumbnail}" alt="" loading="lazy" decoding="async" width="800" height="450" />
+          <img src="${basePath}${game.thumbnail}" alt="${game.name} game thumbnail" loading="lazy" decoding="async" width="800" height="450" />
         </div>
         <div class="game-card__play">
           <span class="game-card__play-btn">${iconMarkup('play')}</span>

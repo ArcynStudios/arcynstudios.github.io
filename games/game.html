@@ -9,10 +9,18 @@
   <link rel="canonical" href="https://www.arcynstudios.com/games/game.html" data-page-canonical />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play on Arcyn Studios" data-og-title />
-  <meta property="og:description" content="Free instant-play browser games." data-og-description />
+  <meta property="og:title" content="Play Game — Arcyn Studios" data-og-title />
+  <meta property="og:description" content="Free instant-play browser games on Arcyn Studios." data-og-description />
+  <meta property="og:url" content="https://www.arcynstudios.com/games/game.html" data-og-url />
+  <meta property="og:site_name" content="Arcyn Studios" />
+  <meta property="og:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" data-og-image />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Play Game — Arcyn Studios" data-twitter-title />
+  <meta name="twitter:description" content="Free instant-play browser games on Arcyn Studios." data-twitter-description />
+  <meta name="twitter:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" data-twitter-image />
 
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
   <link rel="manifest" href="../manifest.json" />
@@ -31,6 +39,17 @@
     "name": "Loading…",
     "applicationCategory": "Game",
     "operatingSystem": "Any (Web Browser)"
+  }
+  </script>
+  <script type="application/ld+json" data-jsonld-breadcrumb>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.arcynstudios.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://www.arcynstudios.com/games/game.html" },
+      { "@type": "ListItem", "position": 3, "name": "Loading…", "item": "https://www.arcynstudios.com/games/game.html" }
+    ]
   }
   </script>
 </head>
@@ -87,6 +106,10 @@
       <a href="../index.html#categories">Categories</a>
       <a href="../index.html#all-games">All Games</a>
     </nav>
+    <div class="mobile-drawer__actions">
+      <a href="../index.html#all-games" class="btn btn-primary">Play Now</a>
+      <button class="btn btn-ghost" data-search-open>Search games</button>
+    </div>
   </div>
 
   <div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="Search games">
@@ -195,14 +218,22 @@
     <div class="container">
       <div class="footer-bottom">
         <p>&copy; <span data-year></span> Arcyn Studios. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="../index.html">Home</a>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-        </div>
+      <div class="footer-legal">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
       </div>
     </div>
   </footer>
+
+  <div data-install-banner hidden aria-hidden="true" style="position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:600;background:var(--bg-elevated);border:1px solid var(--border-glass-strong);border-radius:var(--radius-lg);padding:var(--space-sm) var(--space-md);display:flex;align-items:center;gap:var(--space-sm);box-shadow:var(--shadow-lg);max-width:min(92vw,420px);">
+    <span style="font-size:var(--fs-sm);font-weight:600;color:var(--text-primary);flex:1;">Install Arcyn Studios for a better experience</span>
+    <button class="btn btn-primary btn-sm" data-install-btn>Install</button>
+    <button class="btn-icon" data-install-close aria-label="Dismiss" style="width:32px;height:32px;flex-shrink:0;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 
   <div class="modal-overlay" data-report-modal role="dialog" aria-modal="true" aria-labelledby="report-title">
     <div class="modal-panel">
@@ -224,5 +255,13 @@
   </div>
 
   <script type="module" src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/assets/js/service-worker.js', { scope: '/' }).catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
+

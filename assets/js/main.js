@@ -10,19 +10,14 @@ import { CATEGORIES } from './categories.js';
 import { iconMarkup } from './icons.js';
 import { getFeatured, getTrending, getNewReleases, getEditorsPicks, getMostPlayed, getHighestRated } from './collections.js';
 import { getFavorites, onFavoritesChange } from './favorites.js';
+import { initCommon, setMeta } from './bootstrap.js';
 
 const PAGE_SIZE = 12;
 let visibleCount = PAGE_SIZE;
 let activeCategoryFilter = 'All';
 
-initTheme();
-initNav();
-initFavoriteButtons();
-initAutoReveal();
-initYear();
+initCommon(loadGames);
 initNewsletter();
-releaseLoadingState();
-loadGames();
 
 /** Lets the theme/layout settle on first paint before re-enabling transitions. */
 function releaseLoadingState() {
@@ -184,7 +179,7 @@ function renderAllGames(games) {
 
   const categories = ['All', ...new Set(games.map((g) => g.category))];
   chipRow.innerHTML = categories
-    .map((cat, i) => `<button class="chip${i === 0 ? ' is-active' : ''}" data-filter="${cat}">${cat}</button>`)
+    .map((cat, i) => `<button class="chip${i === 0 ? ' is-active' : ''}" data-filter="${cat}" role="tab" aria-selected="${i === 0}">${cat}</button>`)
     .join('');
 
   const paint = () => {
@@ -205,8 +200,12 @@ function renderAllGames(games) {
   chipRow.addEventListener('click', (e) => {
     const chip = e.target.closest('.chip');
     if (!chip) return;
-    chipRow.querySelectorAll('.chip').forEach((c) => c.classList.remove('is-active'));
+    chipRow.querySelectorAll('.chip').forEach((c) => {
+      c.classList.remove('is-active');
+      c.setAttribute('aria-selected', 'false');
+    });
     chip.classList.add('is-active');
+    chip.setAttribute('aria-selected', 'true');
     activeCategoryFilter = chip.dataset.filter;
     visibleCount = PAGE_SIZE;
     paint();
@@ -244,11 +243,6 @@ function renderLoadError() {
   document.querySelectorAll('[data-retry-load]').forEach((btn) => {
     btn.addEventListener('click', () => window.location.reload(), { once: true });
   });
-}
-
-function initYear() {
-  const el = document.querySelector('[data-year]');
-  if (el) el.textContent = new Date().getFullYear();
 }
 
 function initNewsletter() {

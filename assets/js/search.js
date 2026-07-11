@@ -114,7 +114,7 @@ export function initSearch(games, basePath = '') {
     return `
       <a class="search-result" data-index="${index}" href="${basePath}games/game.html?id=${encodeURIComponent(g.id)}">
         <div class="search-result__thumb">
-          <img src="${basePath}${g.thumbnail}" alt="" loading="lazy" decoding="async" width="44" height="44" />
+          <img src="${basePath}${g.thumbnail}" alt="${g.name} game thumbnail" loading="lazy" decoding="async" width="44" height="44" />
         </div>
         <div class="search-result__meta">
           <span>${highlightMatch(g.name, input.value)}</span>
@@ -156,7 +156,15 @@ export function initSearch(games, basePath = '') {
     saveRecent(recent.slice(0, MAX_RECENT));
   }
 
-  openBtns.forEach((btn) => btn.addEventListener('click', open));
+  openBtns.forEach((btn) => {
+    btn.addEventListener('click', open);
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+      }
+    });
+  });
   closeBtn?.addEventListener('click', close);
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) close();
