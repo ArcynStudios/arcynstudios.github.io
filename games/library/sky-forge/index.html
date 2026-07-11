@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sky Forge</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<div class="game-container">
+<canvas id="c" aria-label="Sky Forge game canvas"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">🏗</span> <span id="height">0m</span></span>
+<span class="hud-pill"><span class="hud-icon">★</span> <span id="score">0</span></span>
+<span class="hud-pill"><span class="hud-icon">⚡</span> <span id="combo">1</span>x</span>
+</div>
+<div class="hud-center">
+<span class="hud-pill" id="wind-display">WIND: <span id="wind-dir">→</span> <span id="wind-str">0</span></span>
+</div>
+<div class="hud-right">
+<span class="hud-pill" id="blocks-left">BLOCKS: <span id="blocks-count">10</span></span>
+<span class="hud-pill" id="perfect-count">PERFECT: <span id="perfect-num">0</span></span>
+</div>
+</div>
+
+<div class="touch-controls" id="touch-controls">
+<div class="touch-row">
+<button class="touch-btn touch-btn-wide" id="btn-drop" aria-label="Drop Block">DROP BLOCK</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn" id="btn-left" aria-label="Nudge Left">◀</button>
+<button class="touch-btn" id="btn-right" aria-label="Nudge Right">▶</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">SKY FORGE</h1>
+<p class="game-subtitle">FLOATING ISLANDS</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">BUILD</button>
+<button class="menu-btn" id="btn-endless">ENDLESS ASCENT</button>
+<button class="menu-btn" id="btn-continue" style="display:none">CONTINUE</button>
+</div>
+<div class="stats-panel" id="stats-panel">
+<div class="stat"><span class="stat-label">BEST HEIGHT</span><span class="stat-value" id="stat-height">0m</span></div>
+<div class="stat"><span class="stat-label">BEST SCORE</span><span class="stat-value" id="stat-score">0</span></div>
+<div class="stat"><span class="stat-label">BEST COMBO</span><span class="stat-value" id="stat-combo">0x</span></div>
+<div class="stat"><span class="stat-label">PERFECT DROPS</span><span class="stat-value" id="stat-perfect">0</span></div>
+<div class="stat"><span class="stat-label">TOWERS BUILT</span><span class="stat-value" id="stat-towers">0</span></div>
+<div class="stat"><span class="stat-label">TIME</span><span class="stat-value" id="stat-time">0:00</span></div>
+</div>
+<div class="menu-buttons">
+<button class="menu-btn" id="btn-tutorial">TUTORIAL</button>
+<button class="menu-btn" id="btn-settings">SETTINGS</button>
+<button class="menu-btn" id="btn-credits">CREDITS</button>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="pause-overlay" style="display:none">
+<div class="overlay-content">
+<h1>PAUSED</h1>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-resume">RESUME</button>
+<button class="menu-btn" id="btn-restart">RESTART</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="gameover-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="gameover-title">TOWER FALLEN</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-retry">BUILD AGAIN</button>
+<button class="menu-btn" id="btn-menu2">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>Tap / Click / Space</kbd><span>Drop Block</span></div>
+<div class="control-item"><kbd>◀ / ▶ / A / D</kbd><span>Nudge Block</span></div>
+<div class="control-item"><kbd>Perfect Center</kbd><span>Combo + Bonus</span></div>
+</div>
+<p class="tutorial-tip">Stack blocks precisely! Wind shifts blocks. Moving platforms add challenge. Weather changes physics!</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+
+<div class="settings-overlay" id="settings-overlay" style="display:none">
+<div class="settings-content">
+<h2>SETTINGS</h2>
+<div class="setting-row">
+<span>Music</span>
+<label class="toggle"><input type="checkbox" id="set-music" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Sound Effects</span>
+<label class="toggle"><input type="checkbox" id="set-sfx" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Screen Shake</span>
+<label class="toggle"><input type="checkbox" id="set-shake" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Particles</span>
+<select id="set-particles"><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+</div>
+<div class="setting-row">
+<span>Difficulty</span>
+<select id="set-difficulty"><option value="normal">Normal</option><option value="hard">Hard</option><option value="master">Master</option></select>
+</div>
+<div class="setting-row">
+<span>Fullscreen</span>
+<label class="toggle"><input type="checkbox" id="set-fullscreen"><span class="toggle-slider"></span></label>
+</div>
+<button class="menu-btn" id="btn-settings-close">DONE</button>
+</div>
+</div>
+
+<div class="credits-overlay" id="credits-overlay" style="display:none">
+<div class="credits-content">
+<h2>CREDITS</h2>
+<p>SKY FORGE</p>
+<p class="credit-role">Original Game by Arcyn Studios</p>
+<div class="credits-list">
+<p>Game Design & Programming</p>
+<p>Physics Engine</p>
+<p>Procedural Generation</p>
+<p>Visual Effects & Shaders</p>
+<p>Audio Design</p>
+</div>
+<p class="credit-note">Built with vanilla JavaScript & Canvas 2D</p>
+<p class="credit-note">No frameworks, no libraries, pure code</p>
+<button class="menu-btn" id="btn-credits-close">BACK</button>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>

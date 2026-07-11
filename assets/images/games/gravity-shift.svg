@@ -1,0 +1,124 @@
+<svg viewBox="0 0 300 169" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gsBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#080810"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
+    </linearGradient>
+    <linearGradient id="gsCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#7c5cff"/>
+    </linearGradient>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="300" height="169" fill="url(#gsBg)"/>
+  <!-- Grid background -->
+  <g stroke="url(#gsCyan)" stroke-width="0.5" opacity="0.1">
+    <line x1="0" y1="20" x2="300" y2="20"/>
+    <line x1="0" y1="50" x2="300" y2="50"/>
+    <line x1="0" y1="80" x2="300" y2="80"/>
+    <line x1="0" y1="110" x2="300" y2="110"/>
+    <line x1="0" y1="140" x2="300" y2="140"/>
+    <line x1="50" y1="0" x2="50" y2="169"/>
+    <line x1="100" y1="0" x2="100" y2="169"/>
+    <line x1="150" y1="0" x2="150" y2="169"/>
+    <line x1="200" y1="0" x2="200" y2="169"/>
+    <line x1="250" y1="0" x2="250" y2="169"/>
+  </g>
+  <!-- Platforms -->
+  <g fill="#1a1a2e" stroke="url(#gsCyan)" stroke-width="1.5" filter="url(#glow2)">
+    <rect x="30" y="130" width="240" height="12" rx="3"/>
+    <rect x="80" y="100" width="60" height="10" rx="2">
+      <animate attributeName="x" values="80;140;80" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="180" y="70" width="50" height="10" rx="2">
+      <animate attributeName="x" values="180;120;180" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="50" y="40" width="80" height="10" rx="2"/>
+    <rect x="180" y="10" width="70" height="10" rx="2"/>
+  </g>
+  <!-- Walls for gravity shifting -->
+  <g fill="#0d1b2a" stroke="url(#gsCyan)" stroke-width="1" filter="url(#glow2)">
+    <rect x="30" y="20" width="8" height="80" rx="2"/>
+    <rect x="262" y="70" width="8" height="70" rx="2"/>
+    <rect x="100" y="110" width="8" height="20" rx="2"/>
+    <rect x="200" y="50" width="8" height="20" rx="2"/>
+  </g>
+  <!-- Lasers -->
+  <g filter="url(#glow2)">
+    <line x1="0" y1="55" x2="300" y2="55" stroke="#00d4ff" stroke-width="3" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0;0.7" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="120" y1="0" x2="120" y2="169" stroke="#ff0066" stroke-width="3" opacity="0.7">
+      <animate attributeName="opacity" values="0;0.7;0" dur="3s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <!-- Portals -->
+  <g filter="url(#glow2)">
+    <ellipse cx="50" cy="85" rx="18" ry="18" fill="none" stroke="#00d4ff" stroke-width="3">
+      <animate attributeName="rx" values="18;22;18" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="18;22;18" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="250" cy="55" rx="18" ry="18" fill="none" stroke="#7c5cff" stroke-width="3">
+      <animate attributeName="rx" values="22;18;22" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="22;18;22" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  <!-- Elevator -->
+  <g fill="#7c5cff" stroke="#00d4ff" stroke-width="2" filter="url(#glow2)">
+    <rect x="140" y="90" width="30" height="8" rx="2">
+      <animate attributeName="y" values="90;130;90" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <!-- Player -->
+  <g filter="url(#glow2)">
+    <rect x="142" y="120" width="16" height="32" rx="3" fill="url(#gsCyan)">
+      <animate attributeName="y" values="120;115;120" dur="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="150" cy="128" r="5" fill="#fff" filter="url(#glow3)"/>
+  </g>
+  <!-- Crystals -->
+  <g filter="url(#glow3)">
+    <polygon points="90,95 98,80 106,95 102,105 94,105" fill="#ffff00">
+      <animateTransform attributeName="transform" type="rotate" from="0 100 95" to="360 100 95" dur="3s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="220,65 228,50 236,65 232,75 224,75" fill="#ffff00">
+      <animateTransform attributeName="transform" type="rotate" from="0 230 65" to="-360 230 65" dur="4s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="30,25 38,10 46,25 42,35 34,35" fill="#ffff00">
+      <animateTransform attributeName="transform" type="rotate" from="0 40 25" to="360 40 25" dur="2s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  <!-- Boss -->
+  <g filter="url(#glow2)">
+    <circle cx="150" cy="30" r="20" fill="none" stroke="#ff0066" stroke-width="3">
+      <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="130" y="18" width="40" height="4" rx="2" fill="#ff0066" opacity="0.8"/>
+    <rect x="130" y="18" width="30" height="4" rx="2" fill="#00ff88"/>
+  </g>
+  <!-- Floating particles -->
+  <g filter="url(#glow3)">
+    <circle cx="20" cy="20" r="2" fill="#00d4ff" opacity="0.5">
+      <animate attributeName="cy" values="20;149;20" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="280" cy="150" r="1.5" fill="#7c5cff" opacity="0.5">
+      <animate attributeName="cy" values="150;21;150" dur="7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <!-- Title -->
+  <text x="150" y="158" text-anchor="middle" font-family="Sora, sans-serif" font-size="16" font-weight="800" fill="url(#gsCyan)" filter="url(#glow2)">GRAVITY SHIFT</text>
+</svg>

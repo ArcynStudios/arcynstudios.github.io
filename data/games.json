@@ -1481,6 +1481,234 @@
       "estPlayTime": "2-6 min",
       "playable": true,
       "playUrl": "library/simon-memory/index.html"
+    },
+    {
+      "id": "void-runner",
+      "name": "Void Runner",
+      "category": "Arcade",
+      "rating": 4.9,
+      "plays": "0",
+      "playsCount": 0,
+      "likes": 0,
+      "reports": 0,
+      "thumbnail": "assets/images/games/void-runner.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#00ffff",
+      "releaseDate": "2026-07-11",
+      "description": "Race through a cyberpunk neon city floating above the clouds. Dodge lasers, jump gaps, slide under barriers, and collect energy crystals. Speed increases every 20 seconds. Features daily challenges and leaderboards.",
+      "tags": [
+        "runner",
+        "endless",
+        "cyberpunk",
+        "neon",
+        "high-score",
+        "daily-challenge"
+      ],
+      "controls": [
+        {
+          "key": "◀ / A",
+          "action": "Move Left"
+        },
+        {
+          "key": "▲ / W / Space",
+          "action": "Jump"
+        },
+        {
+          "key": "▶ / D",
+          "action": "Move Right"
+        },
+        {
+          "key": "▼ / S",
+          "action": "Slide"
+        }
+      ],
+      "difficulty": "Hard",
+      "estPlayTime": "3-8 min",
+      "playable": true,
+      "playUrl": "library/void-runner/index.html"
+    },
+    {
+      "id": "gravity-shift",
+      "name": "Gravity Shift",
+      "category": "Platformer",
+      "rating": 4.8,
+      "plays": "0",
+      "playsCount": 0,
+      "likes": 0,
+      "reports": 0,
+      "thumbnail": "assets/images/games/gravity-shift.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#00d4ff",
+      "releaseDate": "2026-07-11",
+      "description": "Navigate an abandoned futuristic laboratory by rotating gravity itself. Walls become floors, ceilings become platforms. Avoid lasers, solve moving platform puzzles, use portals, and ride elevators across 30 challenge stages.",
+      "tags": [
+        "platformer",
+        "physics",
+        "gravity",
+        "puzzle",
+        "laboratory",
+        "portal"
+      ],
+      "controls": [
+        {
+          "key": "◀ / A",
+          "action": "Move Left"
+        },
+        {
+          "key": "▲ / W / Space",
+          "action": "Jump"
+        },
+        {
+          "key": "▶ / D",
+          "action": "Move Right"
+        },
+        {
+          "key": "Q / E",
+          "action": "Rotate Gravity"
+        }
+      ],
+      "difficulty": "Hard",
+      "estPlayTime": "5-15 min",
+      "playable": true,
+      "playUrl": "library/gravity-shift/index.html"
+    },
+    {
+      "id": "crystal-chaos",
+      "name": "Crystal Chaos",
+      "category": "Puzzle",
+      "rating": 4.9,
+      "plays": "0",
+      "playsCount": 0,
+      "likes": 0,
+      "reports": 0,
+      "thumbnail": "assets/images/games/crystal-chaos.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#ff00ff",
+      "releaseDate": "2026-07-11",
+      "description": "Create massive chain reactions in a luxurious underground crystal cave. Match crystals to trigger explosions, use special gems (row/column clears, bombs, rainbows), and battle boss crystals across 50 hand-crafted levels with daily puzzles.",
+      "tags": [
+        "puzzle",
+        "match-3",
+        "chain-reaction",
+        "crystal",
+        "combo",
+        "daily-puzzle"
+      ],
+      "controls": [
+        {
+          "key": "Click / Tap",
+          "action": "Select Crystal"
+        },
+        {
+          "key": "Drag",
+          "action": "Swap Adjacent"
+        },
+        {
+          "key": "Z",
+          "action": "Undo"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-15 min",
+      "playable": true,
+      "playUrl": "library/crystal-chaos/index.html"
+    },
+    {
+      "id": "shadow-survival",
+      "name": "Shadow Survival",
+      "category": "Action",
+      "rating": 4.8,
+      "plays": "0",
+      "playsCount": 0,
+      "likes": 0,
+      "reports": 0,
+      "thumbnail": "assets/images/games/shadow-survival.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#ff3366",
+      "releaseDate": "2026-07-11",
+      "description": "Survive endless waves of shadow enemies in a dark ruined kingdom. Dash through attacks, raise shields to block, collect souls for power-ups, and chain kills for massive combos. Face epic boss battles every 5 waves.",
+      "tags": [
+        "survival",
+        "arena",
+        "action",
+        "combat",
+        "boss-battle",
+        "endless"
+      ],
+      "controls": [
+        {
+          "key": "WASD / Arrows",
+          "action": "Move"
+        },
+        {
+          "key": "Space / Shift",
+          "action": "Dash (Invincible)"
+        },
+        {
+          "key": "Q / E",
+          "action": "Shield (Block)"
+        },
+        {
+          "key": "Mouse / Touch",
+          "action": "Auto-Attack Nearest"
+        }
+      ],
+      "difficulty": "Hard",
+      "estPlayTime": "5-20 min",
+      "playable": true,
+      "playUrl": "library/shadow-survival/index.html"
+    },
+    {
+      "id": "sky-forge",
+      "name": "Sky Forge",
+      "category": "Strategy",
+      "rating": 4.9,
+      "plays": "0",
+      "playsCount": 0,
+      "likes": 0,
+      "reports": 0,
+      "thumbnail": "assets/images/games/sky-forge.svg",
+      "featured": true,
+      "trending": true,
+      "new": true,
+      "editorsPick": true,
+      "accent": "#ffb444",
+      "releaseDate": "2026-07-11",
+      "description": "Build the tallest tower in the heavens on floating islands. Perfect timing stacking with wind physics, moving platforms, and dynamic weather effects. Chain perfect drops for combo multipliers. Features god rays, flying birds, and stunning sunset lighting.",
+      "tags": [
+        "stacker",
+        "tower-builder",
+        "physics",
+        "precision",
+        "weather",
+        "endless"
+      ],
+      "controls": [
+        {
+          "key": "Tap / Click / Space",
+          "action": "Drop Block"
+        },
+        {
+          "key": "◀ / ▶ / A / D",
+          "action": "Nudge Block"
+        }
+      ],
+      "difficulty": "Medium",
+      "estPlayTime": "5-15 min",
+      "playable": true,
+      "playUrl": "library/sky-forge/index.html"
     }
   ]
 }

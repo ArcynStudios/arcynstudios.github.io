@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Gravity Shift</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<div class="game-container">
+<canvas id="c" aria-label="Gravity Shift game canvas"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">◆</span> <span id="level">1</span></span>
+<span class="hud-pill"><span class="hud-icon">★</span> <span id="score">0</span></span>
+<span class="hud-pill"><span class="hud-icon">⚡</span> <span id="best-combo">0</span>x</span>
+</div>
+<div class="hud-center" id="gravity-indicator">GRAVITY: ▼</div>
+<div class="hud-right">
+<span class="hud-pill" id="crystals">◇ 0</span>
+</div>
+</div>
+
+<div class="touch-controls" id="touch-controls">
+<div class="touch-row">
+<button class="touch-btn" id="btn-left" aria-label="Move left">◀</button>
+<button class="touch-btn" id="btn-jump" aria-label="Jump">▲</button>
+<button class="touch-btn" id="btn-right" aria-label="Move right">▶</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn touch-btn-wide" id="btn-gravity" aria-label="Shift Gravity">⟳ GRAVITY</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">GRAVITY SHIFT</h1>
+<p class="game-subtitle">ABANDONED FUTURISTIC LABORATORY</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">PLAY</button>
+<button class="menu-btn" id="btn-challenge">CHALLENGE STAGES</button>
+<button class="menu-btn" id="btn-continue" style="display:none">CONTINUE</button>
+</div>
+<div class="stats-panel" id="stats-panel">
+<div class="stat"><span class="stat-label">BEST SCORE</span><span class="stat-value" id="stat-best">0</span></div>
+<div class="stat"><span class="stat-label">BEST COMBO</span><span class="stat-value" id="stat-combo">0x</span></div>
+<div class="stat"><span class="stat-label">CRYSTALS</span><span class="stat-value" id="stat-crystals">0</span></div>
+<div class="stat"><span class="stat-label">STAGES CLEARED</span><span class="stat-value" id="stat-stages">0</span></div>
+<div class="stat"><span class="stat-label">TIME</span><span class="stat-value" id="stat-time">0:00</span></div>
+<div class="stat"><span class="stat-label">DEATHS</span><span class="stat-value" id="stat-deaths">0</span></div>
+</div>
+<div class="menu-buttons">
+<button class="menu-btn" id="btn-tutorial">TUTORIAL</button>
+<button class="menu-btn" id="btn-settings">SETTINGS</button>
+<button class="menu-btn" id="btn-credits">CREDITS</button>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="pause-overlay" style="display:none">
+<div class="overlay-content">
+<h1>PAUSED</h1>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-resume">RESUME</button>
+<button class="menu-btn" id="btn-restart">RESTART STAGE</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="stage-complete-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="victory-title">STAGE CLEAR</h1>
+<div class="stage-score" id="stage-score">Score: 0</div>
+<div class="stage-stats" id="stage-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-next-stage">NEXT STAGE</button>
+<button class="menu-btn" id="btn-menu2">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="gameover-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="gameover-title">SYSTEM FAILURE</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-retry">RETRY STAGE</button>
+<button class="menu-btn" id="btn-menu3">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>◀ / A</kbd><span>Move Left</span></div>
+<div class="control-item"><kbd>▲ / W / Space</kbd><span>Jump</span></div>
+<div class="control-item"><kbd>▶ / D</kbd><span>Move Right</span></div>
+<div class="control-item"><kbd>Shift / Q / E</kbd><span>Rotate Gravity</span></div>
+</div>
+<p class="tutorial-tip">Walls become floors. Avoid lasers, solve platform puzzles, use portals. Reach the exit!</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+
+<div class="settings-overlay" id="settings-overlay" style="display:none">
+<div class="settings-content">
+<h2>SETTINGS</h2>
+<div class="setting-row">
+<span>Music</span>
+<label class="toggle"><input type="checkbox" id="set-music" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Sound Effects</span>
+<label class="toggle"><input type="checkbox" id="set-sfx" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Screen Shake</span>
+<label class="toggle"><input type="checkbox" id="set-shake" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Particles</span>
+<select id="set-particles"><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+</div>
+<div class="setting-row">
+<span>Difficulty</span>
+<select id="set-difficulty"><option value="normal">Normal</option><option value="hard">Hard</option><option value="extreme">Extreme</option></select>
+</div>
+<div class="setting-row">
+<span>Fullscreen</span>
+<label class="toggle"><input type="checkbox" id="set-fullscreen"><span class="toggle-slider"></span></label>
+</div>
+<button class="menu-btn" id="btn-settings-close">DONE</button>
+</div>
+</div>
+
+<div class="credits-overlay" id="credits-overlay" style="display:none">
+<div class="credits-content">
+<h2>CREDITS</h2>
+<p>GRAVITY SHIFT</p>
+<p class="credit-role">Original Game by Arcyn Studios</p>
+<div class="credits-list">
+<p>Game Design & Programming</p>
+<p>Physics Engine</p>
+<p>Level Design</p>
+<p>Visual Effects & Shaders</p>
+<p>Audio Design</p>
+</div>
+<p class="credit-note">Built with vanilla JavaScript & Canvas 2D</p>
+<p class="credit-note">No frameworks, no libraries, pure code</p>
+<button class="menu-btn" id="btn-credits-close">BACK</button>
+</div>
+</div>
+
+<div class="challenge-overlay" id="challenge-overlay" style="display:none">
+<div class="challenge-content">
+<h2>CHALLENGE STAGES</h2>
+<p id="challenge-desc">Special stages with unique mechanics!</p>
+<div class="challenge-list" id="challenge-list"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-challenge-start">START CHALLENGE</button>
+<button class="menu-btn" id="btn-challenge-close">BACK</button>
+</div>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>

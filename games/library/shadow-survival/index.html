@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Shadow Survival</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<div class="game-container">
+<canvas id="c" aria-label="Shadow Survival game canvas"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">❤</span> <span id="health">100</span></span>
+<span class="hud-pill"><span class="hud-icon">★</span> <span id="score">0</span></span>
+<span class="hud-pill"><span class="hud-icon">⚡</span> <span id="combo">1</span>x</span>
+</div>
+<div class="hud-center">
+<span class="hud-pill" id="wave-display">WAVE 1</span>
+</div>
+<div class="hud-right">
+<span class="hud-pill" id="dash-cooldown">DASH READY</span>
+<span class="hud-pill" id="shield-cooldown">SHIELD READY</span>
+</div>
+</div>
+
+<div class="touch-controls" id="touch-controls">
+<div class="touch-row">
+<button class="touch-btn touch-btn-wide" id="btn-move-up" aria-label="Move Up">▲</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn" id="btn-move-left" aria-label="Move Left">◀</button>
+<button class="touch-btn touch-btn-action" id="btn-dash" aria-label="Dash">⚡ DASH</button>
+<button class="touch-btn" id="btn-move-right" aria-label="Move Right">▶</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn touch-btn-wide" id="btn-move-down" aria-label="Move Down">▼</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn touch-btn-wide" id="btn-shield" aria-label="Shield">🛡 SHIELD</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">SHADOW SURVIVAL</h1>
+<p class="game-subtitle">DARK RUINED KINGDOM</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">SURVIVE</button>
+<button class="menu-btn" id="btn-endless">ENDLESS MODE</button>
+<button class="menu-btn" id="btn-continue" style="display:none">CONTINUE</button>
+</div>
+<div class="stats-panel" id="stats-panel">
+<div class="stat"><span class="stat-label">HIGH SCORE</span><span class="stat-value" id="stat-high">0</span></div>
+<div class="stat"><span class="stat-label">BEST COMBO</span><span class="stat-value" id="stat-combo">0x</span></div>
+<div class="stat"><span class="stat-label">ENEMIES SLAIN</span><span class="stat-value" id="stat-kills">0</span></div>
+<div class="stat"><span class="stat-label">BOSSES DEFEATED</span><span class="stat-value" id="stat-bosses">0</span></div>
+<div class="stat"><span class="stat-label">SURVIVAL TIME</span><span class="stat-value" id="stat-time">0:00</span></div>
+<div class="stat"><span class="stat-label">RUNS</span><span class="stat-value" id="stat-runs">0</span></div>
+</div>
+<div class="menu-buttons">
+<button class="menu-btn" id="btn-tutorial">TUTORIAL</button>
+<button class="menu-btn" id="btn-settings">SETTINGS</button>
+<button class="menu-btn" id="btn-credits">CREDITS</button>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="pause-overlay" style="display:none">
+<div class="overlay-content">
+<h1>PAUSED</h1>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-resume">RESUME</button>
+<button class="menu-btn" id="btn-restart">RESTART</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="gameover-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="gameover-title">FALLEN</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-retry">RISE AGAIN</button>
+<button class="menu-btn" id="btn-menu2">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>WASD / Arrows</kbd><span>Move</span></div>
+<div class="control-item"><kbd>Space / Shift</kbd><span>Dash (invincible)</span></div>
+<div class="control-item"><kbd>Q / E</kbd><span>Shield (block)</span></div>
+<div class="control-item"><kbd>Mouse / Touch</kbd><span>Auto-attack nearest</span></div>
+</div>
+<p class="tutorial-tip">Survive waves of shadows. Collect souls for power-ups. Chain kills for combo multipliers!</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+
+<div class="settings-overlay" id="settings-overlay" style="display:none">
+<div class="settings-content">
+<h2>SETTINGS</h2>
+<div class="setting-row">
+<span>Music</span>
+<label class="toggle"><input type="checkbox" id="set-music" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Sound Effects</span>
+<label class="toggle"><input type="checkbox" id="set-sfx" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Screen Shake</span>
+<label class="toggle"><input type="checkbox" id="set-shake" checked><span class="toggle-slider"></span></label>
+</div>
+<div class="setting-row">
+<span>Particles</span>
+<select id="set-particles"><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select>
+</div>
+<div class="setting-row">
+<span>Difficulty</span>
+<select id="set-difficulty"><option value="normal">Normal</option><option value="hard">Hard</option><option value="nightmare">Nightmare</option></select>
+</div>
+<div class="setting-row">
+<span>Fullscreen</span>
+<label class="toggle"><input type="checkbox" id="set-fullscreen"><span class="toggle-slider"></span></label>
+</div>
+<button class="menu-btn" id="btn-settings-close">DONE</button>
+</div>
+</div>
+
+<div class="credits-overlay" id="credits-overlay" style="display:none">
+<div class="credits-content">
+<h2>CREDITS</h2>
+<p>SHADOW SURVIVAL</p>
+<p class="credit-role">Original Game by Arcyn Studios</p>
+<div class="credits-list">
+<p>Game Design & Programming</p>
+<p>Enemy AI & Wave Design</p>
+<p>Combat System</p>
+<p>Visual Effects & Particles</p>
+<p>Audio Design</p>
+</div>
+<p class="credit-note">Built with vanilla JavaScript & Canvas 2D</p>
+<p class="credit-note">No frameworks, no libraries, pure code</p>
+<button class="menu-btn" id="btn-credits-close">BACK</button>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>
