@@ -1,55 +1,84 @@
 /**
  * Arcyn Studios — Service Worker
  * Caches the static shell for offline use and network-first for data.
+ * Works on GitHub Pages (subdirectory) and root domain deployments.
  */
 const CACHE_NAME = 'arcyn-shell-v1';
-const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/404.html',
-  '/offline.html',
-  '/assets/css/main.css',
-  '/assets/css/game-page.css',
-  '/assets/js/main.js',
-  '/assets/js/main.js.map',
-  '/assets/js/game-card.js',
-  '/assets/js/search.js',
-  '/assets/js/collections.js',
-  '/assets/js/favorites.js',
-  '/assets/js/toast.js',
-  '/assets/js/theme.js',
-  '/assets/js/nav.js',
-  '/assets/js/categories.js',
-  '/assets/js/icons.js',
-  '/assets/js/install-prompt.js',
-  '/games/game.html',
-  '/games/game.js',
-  '/categories/category.html',
-  '/categories/category.js',
-  '/about.html',
-  '/contact.html',
-  '/privacy.html',
-  '/terms.html',
-  '/cookies.html',
-  '/faq.html',
-  '/changelog.html',
-  '/manifest.json',
-  '/sitemap.xml',
-  '/assets/icons/favicon.svg',
-  '/assets/images/social-share.jpg',
+
+function getBasePath() {
+  const scope = self.registration.scope;
+  const url = new URL(scope);
+  const path = url.pathname;
+  const basePath = path.slice(0, path.lastIndexOf('/') + 1);
+  return basePath;
+}
+
+const BASE_PATH = getBasePath();
+
+function joinPath(...parts) {
+  return parts.map((p) => p.replace(/^\/+|\/+$/g, '')).join('/');
+}
+
+function toAbsolute(path) {
+  return new URL(joinPath(BASE_PATH, path), self.location.origin).href;
+}
+
+function toRelative(url) {
+  const u = new URL(url);
+  const base = new URL(BASE_PATH, self.location.origin);
+  if (!u.pathname.startsWith(base.pathname)) return url;
+  return u.pathname.slice(base.pathname.length) + u.search + u.hash;
+}
+
+const STATIC_ASSETS_RELATIVE = [
+  '',
+  'index.html',
+  '404.html',
+  'offline.html',
+  'assets/css/main.css',
+  'assets/css/game-page.css',
+  'assets/js/main.js',
+  'assets/js/main.js.map',
+  'assets/js/game-card.js',
+  'assets/js/search.js',
+  'assets/js/collections.js',
+  'assets/js/favorites.js',
+  'assets/js/toast.js',
+  'assets/js/theme.js',
+  'assets/js/nav.js',
+  'assets/js/categories.js',
+  'assets/js/icons.js',
+  'assets/js/install-prompt.js',
+  'games/game.html',
+  'games/game.js',
+  'categories/category.html',
+  'categories/category.js',
+  'about.html',
+  'contact.html',
+  'privacy.html',
+  'terms.html',
+  'cookies.html',
+  'faq.html',
+  'changelog.html',
+  'manifest.json',
+  'sitemap.xml',
+  'assets/icons/favicon.svg',
+  'assets/images/social-share.svg',
 ];
 
-const DATA_URLS = [
-  '/data/games.json',
+const DATA_URLS_RELATIVE = [
+  'data/games.json',
 ];
 
 const IMAGE_EXTS = /\.(svg|jpg|jpeg|png|gif|webp|avif)$/i;
+
+const STATIC_ASSETS = STATIC_ASSETS_RELATIVE.map(toAbsolute);
+const DATA_URLS = DATA_URLS_RELATIVE.map(toAbsolute);
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(STATIC_ASSETS).catch(() => {
-        /* Some assets may not exist yet — tolerate partial cache */
       });
     })
   );
@@ -73,7 +102,9 @@ self.addEventListener('fetch', (event) => {
 
   if (request.method !== 'GET') return;
 
-  if (DATA_URLS.some((u) => request.url.endsWith(u))) {
+  const requestPath = toRelative(request.url);
+
+  if (DATA_URLS_RELATIVE.some((u) => requestPath === u || requestPath.endsWith('/' + u))) {
     event.respondWith(networkFirst(request));
     return;
   }

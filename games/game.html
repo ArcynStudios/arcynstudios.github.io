@@ -13,14 +13,14 @@
   <meta property="og:description" content="Free instant-play browser games on Arcyn Studios." data-og-description />
   <meta property="og:url" content="https://www.arcynstudios.com/games/game.html" data-og-url />
   <meta property="og:site_name" content="Arcyn Studios" />
-  <meta property="og:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" data-og-image />
+  <meta property="og:image" content="https://www.arcynstudios.com/assets/images/social-share.svg" data-og-image />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Game — Arcyn Studios" data-twitter-title />
   <meta name="twitter:description" content="Free instant-play browser games on Arcyn Studios." data-twitter-description />
-  <meta name="twitter:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" data-twitter-image />
+  <meta name="twitter:image" content="https://www.arcynstudios.com/assets/images/social-share.svg" data-twitter-image />
 
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
   <link rel="manifest" href="../manifest.json" />
@@ -258,7 +258,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/assets/js/service-worker.js', { scope: '/' }).catch(() => {});
+        navigator.serviceWorker.register('../assets/js/service-worker.js', { scope: '..' }).catch(() => {});
       });
     }
   </script>

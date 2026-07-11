@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="50%" stop-color="#1a0f2e"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c5cff"/>
+      <stop offset="50%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#ff5c8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="80" y="180" width="1120" height="360" rx="24" fill="rgba(255,255,255,0.03)" stroke="url(#accent)" stroke-width="2"/>
+  <text x="640" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="800" fill="url(#accent)">Arcyn Studios</text>
+  <text x="640" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#a8a8bd">Premium Browser Games — No Downloads Required</text>
+  <circle cx="640" cy="520" r="40" fill="url(#accent)" opacity="0.2"/>
+  <path d="M620 520 L640 540 L660 500" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

@@ -16,13 +16,13 @@
   <meta property="og:description" content="A growing universe of premium browser games, built and curated by Arcyn Studios. No downloads. No installs. Just play." />
   <meta property="og:url" content="https://www.arcynstudios.com/" />
   <meta property="og:site_name" content="Arcyn Studios" />
-  <meta property="og:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" />
+  <meta property="og:image" content="https://www.arcynstudios.com/assets/images/social-share.svg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Arcyn Studios — A Premium Gaming Ecosystem, Played Instantly" />
   <meta name="twitter:description" content="A growing universe of premium browser games, built and curated by Arcyn Studios. No downloads. No installs. Just play." />
-  <meta name="twitter:image" content="https://www.arcynstudios.com/assets/images/social-share.jpg" />
+  <meta name="twitter:image" content="https://www.arcynstudios.com/assets/images/social-share.svg" />
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="manifest" href="manifest.json" />
@@ -429,13 +429,13 @@
     <button class="btn-icon" data-install-close aria-label="Dismiss install prompt" style="width:32px;height:32px;flex-shrink:0;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
     </button>
-  </aside>
+  </div>
 
   <script type="module" src="assets/js/main.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/assets/js/service-worker.js', { scope: '/' }).catch(() => {});
+        navigator.serviceWorker.register('assets/js/service-worker.js', { scope: '.' }).catch(() => {});
       });
     }
   </script>
