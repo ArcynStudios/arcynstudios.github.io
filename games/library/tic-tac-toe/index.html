@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Tic Tac Toe</title>
-<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
-<link rel="stylesheet" href="../shared/theme.css" />
-<style>
-  html, body { touch-action: pan-y; }
-  .wrap { display:flex; flex-direction:column; align-items:center; gap:16px; padding:16px; height:100%; justify-content:center; }
-  .board { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; width:min(86vw,340px); aspect-ratio:1; }
-  .cell { display:flex; align-items:center; justify-content:center; background:var(--g-panel); border:1px solid var(--g-border); border-radius:14px; font-size:clamp(2rem,10vw,3rem); font-weight:800; cursor:pointer; transition:background 150ms ease, transform 150ms ease; }
-  .cell:hover { background:rgba(255,255,255,0.1); }
-  .cell:active { transform:scale(0.95); }
-  .cell.x { color:var(--g-cyan); }
-  .cell.o { color:var(--g-pink); }
-  .cell.win { background:rgba(53,224,161,0.18); border-color:var(--g-success); }
-  .cell.placed { animation:pop 220ms ease; }
-  @keyframes pop { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;} }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Tic Tac Toe</title>
+  <link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="../shared/theme.css" />
 </head>
 <body>
-  <div class="game-stage">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="game-stage" id="main-content">
     <div class="hud">
       <span class="hud__pill" id="turn-indicator">Your turn (X)</span>
       <div class="hud__controls">
