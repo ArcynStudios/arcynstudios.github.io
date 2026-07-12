@@ -147,12 +147,6 @@ function hydrate(game) {
   }
 }
 
-function setMeta(name, content, isProperty = false) {
-  const attr = isProperty ? 'property' : 'name';
-  const el = document.querySelector(`meta[${attr}="${name}"]`);
-  if (el) el.setAttribute('content', content);
-}
-
 function renderSimilar(game, games) {
   const el = document.querySelector('[data-similar-games]');
   if (!el) return;
@@ -303,10 +297,4 @@ function renderError() {
       </div>
     `;
   }
-}
-
-function setMeta(name, content, isProperty = false) {
-  const attr = isProperty ? 'property' : 'name';
-  const el = document.querySelector(`meta[${attr}="${name}"]`);
-  if (el) el.setAttribute('content', content);
 }

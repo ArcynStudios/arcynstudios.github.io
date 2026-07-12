@@ -216,9 +216,3 @@ function formatCount(n) {
   if (n >= 1_000) return `${Math.round(n / 1000)}K`;
   return String(n);
 }
-
-function setMeta(name, content, isProperty = false) {
-  const attr = isProperty ? 'property' : 'name';
-  const el = document.querySelector(`meta[${attr}="${name}"]`);
-  if (el) el.setAttribute('content', content);
-}
