@@ -1421,5 +1421,5 @@ createLoop(update);
 updateStats();
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../../../assets/js/service-worker.js', { scope: '../../..' }).catch(() => {});
+  navigator.serviceWorker.register('../../../service-worker.js', { scope: '../../..' }).catch(() => {});
 }

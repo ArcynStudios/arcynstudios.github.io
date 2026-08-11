@@ -952,5 +952,5 @@ if (saved && saved.highScore > 0) {
 createLoop(update);
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../../../assets/js/service-worker.js', { scope: '../../..' }).catch(() => {});
+  navigator.serviceWorker.register('../../../service-worker.js', { scope: '../../..' }).catch(() => {});
 }

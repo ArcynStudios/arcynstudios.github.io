@@ -1323,7 +1323,7 @@ function openSettings() {
 }
 
 $('#set-music').addEventListener('change', (e) => { settings.set('music', e.target.checked); if (!e.target.checked) stopMusic(); else if (state === 'playing') playMusic('shadow-survival', [], 90); });
-$('#set-sfx').addEventEventListener('change', (e) => { settings.set('sfx', e.target.checked); });
+$('#set-sfx').addEventListener('change', (e) => { settings.set('sfx', e.target.checked); });
 $('#set-shake').addEventListener('change', (e) => { settings.set('screenShake', e.target.checked); });
 $('#set-particles').addEventListener('change', (e) => { settings.set('particles', e.target.value); });
 $('#set-difficulty').addEventListener('change', (e) => { settings.set('difficulty', e.target.value); });
@@ -1353,5 +1353,5 @@ createLoop(update);
 updateStats();
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../../../assets/js/service-worker.js', { scope: '../../..' }).catch(() => {});
+  navigator.serviceWorker.register('../../../service-worker.js', { scope: '../../..' }).catch(() => {});
 }
