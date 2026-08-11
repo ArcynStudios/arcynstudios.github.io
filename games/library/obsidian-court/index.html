@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Obsidian Court</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="game-container" id="main-content">
+<canvas id="c" aria-label="Obsidian Court puzzle board"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">&#9635;</span> <span id="level">1/12</span></span>
+<span class="hud-pill"><span class="hud-icon">&#8635;</span> <span id="moves">0</span></span>
+</div>
+<div class="hud-center" id="goal-label">0 / 0 SEATED</div>
+<div class="hud-right">
+<button class="icon-btn" id="undo-btn" aria-label="Undo">&#8630;</button>
+<button class="icon-btn" id="restart-btn" aria-label="Restart level">&#8635;</button>
+<button class="icon-btn" id="mute-btn" aria-label="Toggle sound">&#128266;</button>
+</div>
+</div>
+
+<div class="touch-controls" id="touch-controls">
+<div class="touch-row">
+<button class="touch-btn" id="btn-up" aria-label="Up">&#9650;</button>
+</div>
+<div class="touch-row">
+<button class="touch-btn" id="btn-left" aria-label="Left">&#9664;</button>
+<button class="touch-btn" id="btn-down" aria-label="Down">&#9660;</button>
+<button class="touch-btn" id="btn-right" aria-label="Right">&#9654;</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">OBSIDIAN COURT</h1>
+<p class="game-subtitle">Seat Every Stone</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">PLAY</button>
+<button class="menu-btn" id="btn-tutorial">HOW TO PLAY</button>
+</div>
+<div class="stats-panel">
+<div class="stat"><span class="stat-label">Levels Cleared</span><span class="stat-value" id="stat-cleared">0</span></div>
+<div class="stat"><span class="stat-label">Furthest</span><span class="stat-value" id="stat-far">1</span></div>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="win-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="victory-title" id="win-title">COURT SEATED</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-next">NEXT COURT</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>Arrow Keys</kbd><span>Move piece</span></div>
+<div class="control-item"><kbd>Mouse</kbd><span>Interact / click</span></div>
+<div class="control-item"><kbd>Z</kbd><span>Undo</span></div>
+<div class="control-item"><kbd>R</kbd><span>Restart court</span></div>
+</div>
+<p class="tutorial-tip">Push every obsidian stone onto a glowing seat. You can only <b>push</b>, never pull, so think before you shove a stone into a corner. <b>Z</b> undoes as far back as you like.</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>

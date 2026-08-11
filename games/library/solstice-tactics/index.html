@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Solstice Tactics</title>
+<link rel="icon" type="image/svg+xml" href="../../../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../shared/theme.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="game-container" id="main-content">
+<canvas id="c" aria-label="Solstice Tactics battle grid"></canvas>
+
+<div class="hud">
+<div class="hud-left">
+<span class="hud-pill"><span class="hud-icon">&#9670;</span> <span id="turn-label">YOUR TURN</span></span>
+<span class="hud-pill"><span class="hud-icon">&#9876;</span> <span id="round">1</span></span>
+</div>
+<div class="hud-center" id="hint-label">SELECT A UNIT</div>
+<div class="hud-right">
+<button class="icon-btn" id="end-btn" aria-label="End turn">&#9193;</button>
+<button class="icon-btn" id="mute-btn" aria-label="Toggle sound">&#128266;</button>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h1 class="game-title">SOLSTICE TACTICS</h1>
+<p class="game-subtitle">Every Move Reshapes The Field</p>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-play">BEGIN BATTLE</button>
+<button class="menu-btn" id="btn-tutorial">HOW TO PLAY</button>
+</div>
+<div class="stats-panel">
+<div class="stat"><span class="stat-label">Battles Won</span><span class="stat-value" id="stat-wins">0</span></div>
+<div class="stat"><span class="stat-label">Best Round</span><span class="stat-value" id="stat-round">—</span></div>
+</div>
+<div class="version">v1.0.0</div>
+</div>
+</div>
+
+<div class="overlay" id="gameover-overlay" style="display:none">
+<div class="overlay-content">
+<h1 class="victory-title" id="result-title">FIELD WON</h1>
+<div class="final-score" id="final-score">0</div>
+<div class="final-stats" id="final-stats"></div>
+<div class="menu-buttons">
+<button class="menu-btn primary" id="btn-retry">NEW BATTLE</button>
+<button class="menu-btn" id="btn-menu">MAIN MENU</button>
+</div>
+</div>
+</div>
+
+<div class="tutorial-overlay" id="tutorial-overlay" style="display:none">
+<div class="tutorial-content">
+<h2>HOW TO PLAY</h2>
+<div class="tutorial-controls">
+<div class="control-item"><kbd>Mouse</kbd><span>Select / command units</span></div>
+<div class="control-item"><kbd>Space</kbd><span>End turn</span></div>
+<div class="control-item"><kbd>1 - 4</kbd><span>Jump to unit</span></div>
+</div>
+<p class="tutorial-tip">Click one of your cyan units, then a blue tile to move or a red tile to strike. Each unit moves and attacks once per round. Attacking from behind deals bonus damage. Wipe out the amber warband to win.</p>
+<button class="menu-btn primary" id="btn-tutorial-close">GOT IT</button>
+</div>
+</div>
+</div>
+
+<script type="module" src="game.js"></script>
+</body>
+</html>

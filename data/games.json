@@ -174,14 +174,15 @@
           "action": "Sprint"
         }
       ],
-      "releaseDate": "2026-05-18",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 76000,
       "likes": 13680,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Hard",
-      "estPlayTime": "4-8 min"
+      "estPlayTime": "4-8 min",
+      "playUrl": "library/starfall-arena/index.html"
     },
     {
       "id": "chrono-puzzle",
@@ -392,14 +393,15 @@
           "action": "Sprint"
         }
       ],
-      "releaseDate": "2026-03-11",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 88000,
       "likes": 15840,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Hard",
-      "estPlayTime": "4-8 min"
+      "estPlayTime": "4-8 min",
+      "playUrl": "library/shadow-blade/index.html"
     },
     {
       "id": "quantum-maze",
@@ -481,14 +483,15 @@
           "action": "Reset car"
         }
       ],
-      "releaseDate": "2026-02-09",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 29000,
       "likes": 5220,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Medium",
-      "estPlayTime": "3-6 min"
+      "estPlayTime": "3-6 min",
+      "playUrl": "library/reef-rally/index.html"
     },
     {
       "id": "ember-legion",
@@ -499,7 +502,7 @@
       "thumbnail": "assets/images/games/ember-legion.svg",
       "featured": false,
       "trending": true,
-      "new": false,
+      "new": true,
       "accent": "#ffb444",
       "tags": [
         "strategy",
@@ -523,14 +526,15 @@
           "action": "Ability hotkeys"
         }
       ],
-      "releaseDate": "2026-01-22",
+      "releaseDate": "2026-08-11",
       "editorsPick": true,
       "playsCount": 167000,
       "likes": 30060,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Medium",
-      "estPlayTime": "8-15 min"
+      "estPlayTime": "8-15 min",
+      "playUrl": "library/ember-legion/index.html"
     },
     {
       "id": "frostbyte",
@@ -584,7 +588,7 @@
       "thumbnail": "assets/images/games/nova-strike.svg",
       "featured": false,
       "trending": false,
-      "new": false,
+      "new": true,
       "accent": "#7c5cff",
       "tags": [
         "shooter",
@@ -612,14 +616,15 @@
           "action": "Reload"
         }
       ],
-      "releaseDate": "2025-12-15",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 72000,
       "likes": 12960,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Hard",
-      "estPlayTime": "4-8 min"
+      "estPlayTime": "4-8 min",
+      "playUrl": "library/nova-strike/index.html"
     },
     {
       "id": "obsidian-court",
@@ -630,7 +635,7 @@
       "thumbnail": "assets/images/games/obsidian-court.svg",
       "featured": false,
       "trending": false,
-      "new": false,
+      "new": true,
       "accent": "#ff5c8a",
       "tags": [
         "puzzle",
@@ -654,14 +659,15 @@
           "action": "Undo"
         }
       ],
-      "releaseDate": "2025-11-30",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 33000,
       "likes": 5940,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Easy",
-      "estPlayTime": "3-6 min"
+      "estPlayTime": "3-6 min",
+      "playUrl": "library/obsidian-court/index.html"
     },
     {
       "id": "hyperloop-heist",
@@ -672,7 +678,7 @@
       "thumbnail": "assets/images/games/hyperloop-heist.svg",
       "featured": false,
       "trending": false,
-      "new": false,
+      "new": true,
       "accent": "#ffb444",
       "tags": [
         "arcade",
@@ -692,14 +698,15 @@
           "action": "Jump / action"
         }
       ],
-      "releaseDate": "2025-11-12",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 41000,
       "likes": 7380,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Easy",
-      "estPlayTime": "2-5 min"
+      "estPlayTime": "2-5 min",
+      "playUrl": "library/hyperloop-heist/index.html"
     },
     {
       "id": "wraith-protocol",
@@ -757,7 +764,7 @@
       "thumbnail": "assets/images/games/solstice-tactics.svg",
       "featured": false,
       "trending": false,
-      "new": false,
+      "new": true,
       "accent": "#22d3ee",
       "tags": [
         "strategy",
@@ -781,14 +788,15 @@
           "action": "Ability hotkeys"
         }
       ],
-      "releaseDate": "2025-10-08",
+      "releaseDate": "2026-08-11",
       "editorsPick": false,
       "playsCount": 97000,
       "likes": 17460,
       "reports": 0,
-      "playable": false,
+      "playable": true,
       "difficulty": "Medium",
-      "estPlayTime": "8-15 min"
+      "estPlayTime": "8-15 min",
+      "playUrl": "library/solstice-tactics/index.html"
     },
     {
       "id": "tic-tac-toe",
