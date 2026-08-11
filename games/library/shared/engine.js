@@ -39,19 +39,23 @@ export function createTouchState(canvas) {
   const touches = { x: 0, y: 0, active: false };
   const rect = () => canvas.getBoundingClientRect();
   
-  const update = (e) => {
+  // Mouse events have no `touches` list, so read the point off the event
+  // itself when the list is absent or empty.
+  const update = (e, setActive = true) => {
     const r = rect();
-    const t = e.touches[0] || e;
+    const t = (e.touches && e.touches[0]) || e;
     touches.x = t.clientX - r.left;
     touches.y = t.clientY - r.top;
-    touches.active = true;
+    if (setActive) touches.active = true;
   };
-  
+
   canvas.addEventListener('touchstart', (e) => { e.preventDefault(); update(e); }, { passive: false });
   canvas.addEventListener('touchmove', (e) => { e.preventDefault(); update(e); }, { passive: false });
   canvas.addEventListener('touchend', (e) => { touches.active = e.touches.length > 0; if (touches.active) update(e); });
-  canvas.addEventListener('mousemove', (e) => update(e));
-  canvas.addEventListener('mousedown', (e) => { touches.active = true; update(e); });
+  // Moving the mouse tracks the cursor but must not imply a press — otherwise
+  // hovering reads as a held pointer and games fire continuously on desktop.
+  canvas.addEventListener('mousemove', (e) => update(e, false));
+  canvas.addEventListener('mousedown', (e) => { update(e); });
   canvas.addEventListener('mouseup', () => { touches.active = false; });
   canvas.addEventListener('mouseleave', () => { touches.active = false; });
   
@@ -114,7 +118,9 @@ export function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n));
 }
 
-export function rand(min, max) {
+// Defaults to the 0..1 range so a bare rand() behaves like Math.random();
+// without them it returns NaN and every `rand() > 0.5` silently reads false.
+export function rand(min = 0, max = 1) {
   return min + Math.random() * (max - min);
 }
 

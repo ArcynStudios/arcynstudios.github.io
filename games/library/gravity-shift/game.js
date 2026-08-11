@@ -52,6 +52,7 @@ let lasers = [];
 let portals = [];
 let movingPlatforms = [];
 let elevators = [];
+let crystals = [];
 let exit = null;
 let gravityDir = 0;
 let level = 1;
@@ -306,7 +307,9 @@ function generateLevel(levelNum) {
     w: 0.8, h: 1.6, vx: 0, vy: 0,
     onGround: false, groundedTimer: 0,
     color: '#00d4ff', glowColor: '#00d4ff',
-    trail: [], invincible: 0, dead: false
+    // Levels are generated randomly, so the start can land near a laser.
+    // A brief spawn grace keeps that from being an instant, unfair loss.
+    trail: [], invincible: 1.5, dead: false
   };
   
   gravityDir = 0;
@@ -346,7 +349,14 @@ function checkCollisions() {
   const p = player;
   p.onGround = false;
   
-  const allPlatforms = [...platforms, ...movingPlatforms.map(mp => mp.platform)];
+  // Moving platforms are plain platform objects themselves (x/y/w/h/type),
+  // not wrappers holding a `platform` field. Elevators do wrap one, and it
+  // has to be collidable or the player rides straight through them.
+  const allPlatforms = [
+    ...platforms,
+    ...movingPlatforms,
+    ...elevators.map(e => e.platform)
+  ];
   
   for (const plat of allPlatforms) {
     if (plat.type === 'wall' && gravityDir % 2 === 0) continue;
@@ -404,7 +414,10 @@ function checkCollisions() {
       const dist = laser.horizontal
         ? Math.abs(p.y + p.h / 2 - laser.y1)
         : Math.abs(p.x + p.w / 2 - laser.x1);
-      if (dist < 8) {
+      // The world is measured in tiles (tileSize === 1), so the hit band has
+      // to be a fraction of a tile — roughly the player's own half-width.
+      const hitRadius = (laser.horizontal ? p.h : p.w) / 2;
+      if (dist < hitRadius) {
         killPlayer();
         return;
       }
@@ -617,11 +630,9 @@ function updateMovingPlatforms(dt) {
     if (mp.type === 'horizontal') {
       mp.x += mp.dir * mp.speed * dt * 60;
       if (mp.x >= mp.x2 || mp.x <= mp.x1) mp.dir *= -1;
-      mp.platform.x = mp.x;
     } else {
       mp.y += mp.dir * mp.speed * dt * 60;
       if (mp.y >= mp.y2 || mp.y <= mp.y1) mp.dir *= -1;
-      mp.platform.y = mp.y;
     }
   }
   
@@ -808,13 +819,13 @@ function drawPlatforms(ctx, w, h) {
   ctx.fillStyle = '#00d4ff';
   ctx.strokeStyle = '#7c5cff';
   for (const mp of movingPlatforms) {
-    const sx = mp.platform.x - cameraX + w / 2;
-    const sy = mp.platform.y - cameraY + h / 2;
-    if (sx + mp.platform.w < 0 || sx > w || sy + mp.platform.h < 0 || sy > h) continue;
-    
+    const sx = mp.x - cameraX + w / 2;
+    const sy = mp.y - cameraY + h / 2;
+    if (sx + mp.w < 0 || sx > w || sy + mp.h < 0 || sy > h) continue;
+
     ctx.shadowColor = '#00d4ff';
     ctx.shadowBlur = 10;
-    roundRect(ctx, sx, sy, mp.platform.w, mp.platform.h, 4);
+    roundRect(ctx, sx, sy, mp.w, mp.h, 4);
     ctx.fill();
     ctx.stroke();
     ctx.shadowBlur = 0;
@@ -903,7 +914,9 @@ function drawPortals(ctx, w, h) {
       
       // Outer ring
       for (let i = 0; i < 3; i++) {
-        const r = end.w / 2 + Math.sin(time * 2 + i) * 5 + i * 8;
+        // The pulse can dip below the portal's half-width on small portals,
+        // and arc() throws on a negative radius.
+        const r = Math.max(0, end.w / 2 + Math.sin(time * 2 + i) * 5 + i * 8);
         ctx.strokeStyle = end.color.replace(')', `, ${0.3 - i * 0.1})`).replace('rgb', 'rgba').replace('hsl', 'hsla');
         ctx.lineWidth = 2;
         ctx.shadowColor = end.color;
